@@ -1,2 +1,2 @@
-# nuns-with-guns
+# Nuns with Guns
 
