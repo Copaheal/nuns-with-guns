@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm1r8avcref5c"]
+
+[ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://Scenes/MainCaveTileset.tres" id="1_4fjwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fjwb"]
+size = Vector2(80, 15)
+
+[node name="Cave Platform" type="Sprite2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_4fjwb")
+format = 2
+layer_0/tile_data = PackedInt32Array(-3, 2162688, 15, -2, 2228224, 15, -1, 2359296, 15, -65535, 589824, 15, -65536, 524288, 15)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
+position = Vector2(-8, -8.5)
+shape = SubResource("RectangleShape2D_4fjwb")
+one_way_collision = true
