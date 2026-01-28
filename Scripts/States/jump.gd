@@ -16,7 +16,15 @@ func init() -> void:
 #what happens when we enter State.
 func enter() -> void:
 	player.anim_player.play("Jump")
+	player.anim_player.pause()
 	player.velocity.y = -jump_velocity
+	
+	#check if buffer jump
+	if player.previous_state == fall and not Input.is_action_pressed("jump"):
+		await get_tree().physics_frame
+		player.velocity.y = decelerate_on_jump_release
+		player.change_state(fall)
+		pass
 	pass
 
 
@@ -35,7 +43,7 @@ func handle_input(event:InputEvent) -> PlayerState:
 
 #What happens each process tick
 func process(_delta:float) -> PlayerState:
-
+	set_jump_frame()
 	return next_state
 
 
@@ -47,3 +55,10 @@ func physics_process(_delta:float) -> PlayerState:
 		return fall
 	player.velocity.x = player.direction.x * player.walk_speed
 	return next_state
+
+func set_jump_frame() -> void:
+	var frame:float = remap(player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5)
+	player.anim_player.seek(frame, true) 
+	pass
+	
+	

@@ -32,7 +32,8 @@ func exit() -> void:
 #What happens when an input is pressed/released
 func handle_input(_event:InputEvent) -> PlayerState:
 	if _event.is_action_pressed("jump"):
-		if player.platform_rayc1.is_colliding() or player.platform_rayc2.is_colliding() == true:
+		player.platform_shapec.force_shapecast_update()
+		if player.platform_shapec.is_colliding():
 			player.position.y += 4
 			return fall
 		return jump

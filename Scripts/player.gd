@@ -6,10 +6,9 @@ class_name Player extends CharacterBody2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+@onready var platform_shapec: ShapeCast2D = $PlatformShapeCast
 @onready var crouch_rayc1: RayCast2D = $CrouchRaycast1
 @onready var crouch_rayc2: RayCast2D = $CrouchRaycast2
-@onready var platform_rayc1: RayCast2D = $PlatformRaycast1
-@onready var platform_rayc2: RayCast2D = $PlatformRaycast2
 
 #endregion
 
@@ -17,6 +16,7 @@ class_name Player extends CharacterBody2D
 #Walk/Run speed
 @export var walk_speed = 150.0
 @export var run_speed = 250.0
+@export var max_fall_velocity:float = 600
 #Dash variables
 @export var dash_speed  = 1000.0
 @export var dash_max_distance = 200
@@ -70,8 +70,9 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 
-	# Add the gravity.
+	# Gravity Logic
 	velocity.y += gravity * _delta * gravity_multiplier
+	velocity.y = clampf(velocity.y, -1000, max_fall_velocity)
 
 	#Wall slide
 	if is_on_wall() and !is_on_floor():
@@ -161,6 +162,7 @@ func dash(delta):
 		var current_distance = abs(position.x - dash_start_position)
 		if current_distance >= dash_max_distance or is_on_wall():
 			is_dashing = false
+			anim_player.play("Falling")
 		else:
 			anim_player.play("Dash")
 			velocity.x = dash_direction.x * dash_speed * dash_curve.sample(current_distance / dash_max_distance)

@@ -2,7 +2,7 @@ class_name PlayerStateFall extends PlayerState
 
 
 #region state references
-@export var coyote_time:float = 0.125
+@export var coyote_time:float = 0.2
 @export var fall_gravity_multiplier:float = 1.165
 @export var jump_buffer_time :float = 0.125
 
@@ -21,6 +21,7 @@ func init() -> void:
 func enter() -> void:
 	#play animation
 	player.anim_player.play("Falling")
+	player.anim_player.pause()
 	player.gravity_multiplier = fall_gravity_multiplier
 	#set coyote timer
 	if player.previous_state == jump:
@@ -33,6 +34,7 @@ func enter() -> void:
 #What happens when we exit state.
 func exit() -> void:
 	player.gravity_multiplier = 1.0
+	buffer_timer = 0
 	pass
 
 
@@ -51,6 +53,7 @@ func handle_input(_event:InputEvent) -> PlayerState:
 func process(delta:float) -> PlayerState:
 	coyote_timer -= delta
 	buffer_timer -= delta
+	set_jump_frame()
 	return next_state
 
 
@@ -62,3 +65,8 @@ func physics_process(_delta:float) -> PlayerState:
 		return idle
 	player.velocity.x = player.direction.x * player.walk_speed
 	return next_state
+
+func set_jump_frame() -> void:
+	var frame:float = remap(player.velocity.y, 0.0, player.max_fall_velocity, 0.5, 1.0)
+	player.anim_player.seek(frame, true) 
+	pass
