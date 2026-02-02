@@ -348,6 +348,47 @@ tracks/3/keys = {
 "values": [ExtResource("4_8erm5"), ExtResource("13_h4iuc"), ExtResource("3_f1ek2"), ExtResource("4_8erm5")]
 }
 
+[sub_resource type="Animation" id="Animation_igrcy"]
+resource_name = "Jump Fall Inbetween"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_tx1dd"]
 length = 0.001
 tracks/0/type = "value"
@@ -505,47 +546,6 @@ tracks/3/keys = {
 "values": [ExtResource("7_gymyn")]
 }
 
-[sub_resource type="Animation" id="Animation_igrcy"]
-resource_name = "Jump Fall Inbetween"
-length = 0.3
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:vframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fd4e3"]
 _data = {
 &"Crouch": SubResource("Animation_fd4e3"),
@@ -570,6 +570,14 @@ script = ExtResource("1_cvnsp")
 dash_speed = 750.0
 dash_max_distance = 100
 dash_curve = SubResource("Curve_cvnsp")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_left = -400
+limit_right = 2500
+limit_bottom = 700
+position_smoothing_enabled = true
 
 [node name="States" type="Node" parent="."]
 
@@ -603,6 +611,7 @@ position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_7dp3o")
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_h4iuc")
 
@@ -621,6 +630,7 @@ position = Vector2(6, -16)
 target_position = Vector2(0, -25)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -34.0
 offset_top = -67.0
 offset_right = 34.0

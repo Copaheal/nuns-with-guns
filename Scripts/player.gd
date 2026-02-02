@@ -74,19 +74,19 @@ func _physics_process(_delta: float) -> void:
 	velocity.y += gravity * _delta * gravity_multiplier
 	velocity.y = clampf(velocity.y, -1000, max_fall_velocity)
 
-	#Wall slide
-	if is_on_wall() and !is_on_floor():
-		if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
-			anim_player.play("Wall Slide")
-			is_wall_sliding = true
-		if Input.is_action_just_released("right") or Input.is_action_just_released("left"):
-			is_wall_sliding = false
-	else:
-		is_wall_sliding = false
-		
-	if is_wall_sliding:
-		velocity.y += (GRAVITY_WALL * _delta)
-		velocity.y = min(velocity.y,GRAVITY_WALL)
+	##Wall slide
+	#if is_on_wall() and !is_on_floor():
+		#if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
+			#anim_player.play("Wall Slide")
+			#is_wall_sliding = true
+		#if Input.is_action_just_released("right") or Input.is_action_just_released("left"):
+			#is_wall_sliding = false
+	#else:
+		#is_wall_sliding = false
+		#
+	#if is_wall_sliding:
+		#velocity.y += (GRAVITY_WALL * _delta)
+		#velocity.y = min(velocity.y,GRAVITY_WALL)
 
 
 	#Dash Activation
@@ -129,7 +129,7 @@ func change_state(new_state:PlayerState) -> void:
 	states.push_front( new_state )
 	current_state.enter()
 	states.resize( 3 )
-	$Label.text = current_state.name
+	#$Label.text = current_state.name
 	pass
 
 
