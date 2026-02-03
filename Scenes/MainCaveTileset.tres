@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dbubr4jl6jfot"]
 
-[ext_resource type="Texture2D" uid="uid://bh384f0ci52sp" path="res://Assets/Cave Parts/mainlev_build.png" id="1_88l8o"]
-[ext_resource type="Texture2D" uid="uid://b07d37xyvoqfm" path="res://Assets/Cave Parts/props1.png" id="2_b8xrp"]
-[ext_resource type="Texture2D" uid="uid://vh3juaktb7x8" path="res://Assets/Cave Parts/props2.png" id="3_g43qx"]
+[ext_resource type="Texture2D" uid="uid://bh384f0ci52sp" path="res://Assets/TileSets/Cave Parts/mainlev_build.png" id="1_88l8o"]
+[ext_resource type="Texture2D" uid="uid://b07d37xyvoqfm" path="res://Assets/TileSets/Cave Parts/props1.png" id="2_b8xrp"]
+[ext_resource type="Texture2D" uid="uid://vh3juaktb7x8" path="res://Assets/TileSets/Cave Parts/props2.png" id="3_g43qx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_d1ilt"]
 tile_data = PackedInt32Array(0, 2162688, 15, 1, 2228224, 15, 2, 2359296, 15, 3, 524288, 15, 4, 589824, 15)
@@ -5030,7 +5030,7 @@ texture = ExtResource("3_g43qx")
 62:62/0 = 0
 
 [resource]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_21xkr")
 sources/1 = SubResource("TileSetAtlasSource_hptm8")
 sources/2 = SubResource("TileSetAtlasSource_d1ilt")

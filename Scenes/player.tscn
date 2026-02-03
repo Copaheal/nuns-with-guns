@@ -442,6 +442,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_gymyn"]
 resource_name = "Run"
+length = 0.9
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -562,7 +563,7 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 8
 collision_mask = 7
 floor_snap_length = 3.0
@@ -570,14 +571,6 @@ script = ExtResource("1_cvnsp")
 dash_speed = 750.0
 dash_max_distance = 100
 dash_curve = SubResource("Curve_cvnsp")
-
-[node name="Camera2D2" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-process_callback = 0
-limit_left = -400
-limit_right = 2500
-limit_bottom = 700
-position_smoothing_enabled = true
 
 [node name="States" type="Node" parent="."]
 
@@ -647,3 +640,10 @@ shape = SubResource("RectangleShape2D_7dp3o")
 target_position = Vector2(0, 0)
 max_results = 12
 collision_mask = 2
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_left = -400
+limit_right = 2500
+limit_bottom = 700

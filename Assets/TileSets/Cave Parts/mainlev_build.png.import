@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b07d37xyvoqfm"
-path="res://.godot/imported/props1.png-7be27c9af20e20179f3ec7fe9019b8f2.ctex"
+uid="uid://bh384f0ci52sp"
+path="res://.godot/imported/mainlev_build.png-e1ee9141bcc9263230a49d9c754186a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cave Parts/props1.png"
-dest_files=["res://.godot/imported/props1.png-7be27c9af20e20179f3ec7fe9019b8f2.ctex"]
+source_file="res://Assets/TileSets/Cave Parts/mainlev_build.png"
+dest_files=["res://.godot/imported/mainlev_build.png-e1ee9141bcc9263230a49d9c754186a9.ctex"]
 
 [params]
 

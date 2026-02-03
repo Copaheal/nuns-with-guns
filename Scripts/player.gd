@@ -55,7 +55,10 @@ var direction:Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	if get_tree().get_first_node_in_group("Player") !=self:
+		self.queue_free()
 	initialize_states()
+	self.call_deferred("reparent", get_tree().root)
 	pass
 
 func _unhandled_input( _event: InputEvent ) -> void:
@@ -73,21 +76,6 @@ func _physics_process(_delta: float) -> void:
 	# Gravity Logic
 	velocity.y += gravity * _delta * gravity_multiplier
 	velocity.y = clampf(velocity.y, -1000, max_fall_velocity)
-
-	##Wall slide
-	#if is_on_wall() and !is_on_floor():
-		#if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
-			#anim_player.play("Wall Slide")
-			#is_wall_sliding = true
-		#if Input.is_action_just_released("right") or Input.is_action_just_released("left"):
-			#is_wall_sliding = false
-	#else:
-		#is_wall_sliding = false
-		#
-	#if is_wall_sliding:
-		#velocity.y += (GRAVITY_WALL * _delta)
-		#velocity.y = min(velocity.y,GRAVITY_WALL)
-
 
 	#Dash Activation
 	dash(_delta)
@@ -117,6 +105,7 @@ func initialize_states() -> void:
 	current_state.enter()
 	$Label.text = current_state.name
 	pass
+
 func change_state(new_state:PlayerState) -> void:
 	if new_state == null:
 		return
@@ -131,7 +120,6 @@ func change_state(new_state:PlayerState) -> void:
 	states.resize( 3 )
 	#$Label.text = current_state.name
 	pass
-
 
 func update_direction() -> void:
 	var prev_direction:Vector2=direction

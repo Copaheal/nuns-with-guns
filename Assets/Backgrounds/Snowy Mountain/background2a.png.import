@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh384f0ci52sp"
-path="res://.godot/imported/mainlev_build.png-20e05582925ff0d035874c5c91395cd8.ctex"
+uid="uid://dbhrv8sfgklyb"
+path="res://.godot/imported/background2a.png-52fd9bb16ca433758174158eecb9f07e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cave Parts/mainlev_build.png"
-dest_files=["res://.godot/imported/mainlev_build.png-20e05582925ff0d035874c5c91395cd8.ctex"]
+source_file="res://Assets/Backgrounds/Snowy Mountain/background2a.png"
+dest_files=["res://.godot/imported/background2a.png-52fd9bb16ca433758174158eecb9f07e.ctex"]
 
 [params]
 

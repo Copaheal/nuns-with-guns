@@ -19,6 +19,10 @@ config/icon="uid://daum5otuq6ory"
 
 buses/default_bus_layout="uid://cqlkqwhd1jppb"
 
+[autoload]
+
+SceneManager="*res://00_Global/Scene Manager/Scene_Manager.tscn"
+
 [display]
 
 window/size/viewport_width=960
@@ -26,6 +30,10 @@ window/size/viewport_height=540
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Player=""
 
 [input]
 
