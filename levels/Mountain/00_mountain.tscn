@@ -29,6 +29,7 @@ tile_map_data = PackedByteArray("AAAAABoAAAAQAAsAAAAAABsAAAAQAAwAAAAAABwAAAAOABQ
 tile_set = ExtResource("7_i8m8l")
 
 [node name="CavePlatformLayer" type="TileMapLayer" parent="TileMaps"]
+z_index = 1
 position = Vector2(21, 23)
 tile_map_data = PackedByteArray("AAACAB4AAAAhAA8AAAADAB4AAAAiAA8AAAAEAB4AAAAkAA8AAAAFAB4AAAAIAA8AAAAGAB4AAAAJAA8AAAA=")
 tile_set = ExtResource("7_i8m8l")

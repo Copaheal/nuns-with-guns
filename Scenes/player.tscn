@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ddyfrooekrk0h"]
+[gd_scene load_steps=33 format=3 uid="uid://ddyfrooekrk0h"]
 
 [ext_resource type="Script" uid="uid://5g8jm46upk0r" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cvuyu5yfyogts" path="res://Assets/Character/_Idle.png" id="1_v0iea"]
@@ -244,7 +244,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_f1ek2"]
 resource_name = "Idle"
-length = 0.9
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -563,6 +563,17 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
 
+[sub_resource type="Gradient" id="Gradient_h4iuc"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fd4e3"]
+gradient = SubResource("Gradient_h4iuc")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 8
 collision_mask = 7
@@ -647,3 +658,10 @@ process_callback = 0
 limit_left = -400
 limit_right = 2500
 limit_bottom = 700
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 9
+position = Vector2(0, -18)
+color = Color(0.7645838, 0.75798947, 0.6411534, 1)
+energy = 0.75
+texture = SubResource("GradientTexture2D_fd4e3")
