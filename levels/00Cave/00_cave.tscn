@@ -20134,7 +20134,7 @@ metadata/_custom_type_script = "uid://crm4dveubgrba"
 
 [node name="Player" parent="." instance=ExtResource("2_b1b6h")]
 z_index = 1
-position = Vector2(2011, 280)
+position = Vector2(-39, 307)
 
 [node name="Tilesets" type="Node" parent="."]
 
