@@ -1,4 +1,4 @@
-extends Area2D
+class_name KillZone extends Area2D
 @onready var timer: Timer = $Timer
 
 

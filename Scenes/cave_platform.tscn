@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm1r8avcref5c"]
 
-[ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://Scenes/MainCaveTileset.tres" id="1_4fjwb"]
+[ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="1_4fjwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fjwb"]
 size = Vector2(80, 15)

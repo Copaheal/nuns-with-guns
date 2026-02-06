@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://fttd0lnlm5uc" path="res://Assets/Backgrounds/Snowy Mountain/background3.png" id="4_yyv8l"]
 [ext_resource type="Texture2D" uid="uid://cayeaqbxmj4p7" path="res://Assets/Backgrounds/Snowy Mountain/background4.png" id="5_udr33"]
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="6_71fd7"]
-[ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://Scenes/MainCaveTileset.tres" id="7_i8m8l"]
+[ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="7_i8m8l"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="8_66t2u"]
 
 [node name="00_Mountain" type="Node2D"]
@@ -30,7 +30,7 @@ tile_set = ExtResource("7_i8m8l")
 
 [node name="CavePlatformLayer" type="TileMapLayer" parent="TileMaps"]
 position = Vector2(21, 23)
-tile_map_data = PackedByteArray("AADJ/woAAAAMABIAAADJ/wsAAAAPABIAAADJ/wwAAAASABIAAADK/woAAAANABIAAADK/wsAAAAQABIAAADK/wwAAAATABIAAADS/woAAAAbABQAAADS/wsAAAAbABUAAADS/wwAAAAcAA4AAADT/woAAAAcABQAAADT/wsAAAAcABUAAADT/wwAAAARAAYAAAACAB4AAAAhAA8AAAADAB4AAAAiAA8AAAAEAB4AAAAkAA8AAAAFAB4AAAAIAA8AAAAGAB4AAAAJAA8AAAA=")
+tile_map_data = PackedByteArray("AAACAB4AAAAhAA8AAAADAB4AAAAiAA8AAAAEAB4AAAAkAA8AAAAFAB4AAAAIAA8AAAAGAB4AAAAJAA8AAAA=")
 tile_set = ExtResource("7_i8m8l")
 
 [node name="ForeGround" type="TileMapLayer" parent="TileMaps"]
