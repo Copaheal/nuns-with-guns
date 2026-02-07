@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://0l0lhnii3gjb"]
+
+[ext_resource type="Texture2D" uid="uid://cvuyu5yfyogts" path="res://Assets/Character/_Idle.png" id="1_lldu1"]
+[ext_resource type="Script" uid="uid://bf60pywbb1q2k" path="res://Scripts/player_spawn.gd" id="1_usbxr"]
+
+[node name="PlayerSpawn" type="Node2D"]
+z_index = 100
+script = ExtResource("1_usbxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1.825, 1.007, 1)
+position = Vector2(5, -40)
+texture = ExtResource("1_lldu1")
+hframes = 10

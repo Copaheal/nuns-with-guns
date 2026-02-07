@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=4 uid="uid://b1jkg4y8uvmy"]
+[gd_scene load_steps=16 format=4 uid="uid://b1jkg4y8uvmy"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_2fqq6"]
-[ext_resource type="PackedScene" uid="uid://ddyfrooekrk0h" path="res://Scenes/player.tscn" id="2_b1b6h"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="3_e2uee"]
 [ext_resource type="Texture2D" uid="uid://dpy2fm5tipw6x" path="res://Assets/Backgrounds/Cave/background1.png" id="6_u728i"]
 [ext_resource type="Texture2D" uid="uid://icrf5hpopnnr" path="res://Assets/Backgrounds/Cave/background2.png" id="7_xpnnf"]
@@ -12,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bd4a1hqus2doq" path="res://Assets/music/Gallery of the Damned.mp3" id="11_sp753"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="12_b1b6h"]
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="12_xmbpx"]
+[ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="13_xmbpx"]
 
 [sub_resource type="Gradient" id="Gradient_b1b6h"]
 colors = PackedColorArray(0.7989663, 0.9091569, 0.9955722, 0, 1, 1, 1, 1)
@@ -25,42 +25,6 @@ color_ramp = SubResource("Gradient_b1b6h")
 seamless = true
 normalize = false
 seamless_blend_skirt = 0.5
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b1b6h"]
-blend_mode = 1
-light_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_xmbpx"]
-colors = PackedColorArray(1.2099015, 1.8247963, 0.9443788, 1, 0.654902, 1, 0.5058824, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b01uj"]
-gradient = SubResource("Gradient_xmbpx")
-width = 16
-height = 16
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
-[sub_resource type="Gradient" id="Gradient_3ke54"]
-offsets = PackedFloat32Array(0, 0.27314815, 0.7222222, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.32407406, 0.32407406, 0.32407406, 1, 0.7453704, 0.7453704, 0.7453704, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_u728i"]
-gradient = SubResource("Gradient_3ke54")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xpnnf"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1450, 400, 1)
-direction = Vector3(0, 0, 0)
-initial_velocity_max = 300.0
-gravity = Vector3(0, 10, 0)
-scale_min = 0.75
-scale_max = 1.25
-color_ramp = SubResource("GradientTexture1D_u728i")
-hue_variation_min = -2.2351742e-08
-hue_variation_max = 0.049999975
-turbulence_enabled = true
 
 [node name="00Cave" type="Node2D"]
 
@@ -79,9 +43,8 @@ size = 4
 location = 1
 target_level = "uid://c0wdkls6a0ec"
 
-[node name="Player" parent="." instance=ExtResource("2_b1b6h")]
-z_index = 1
-position = Vector2(-39, 307)
+[node name="PlayerSpawn" parent="." instance=ExtResource("13_xmbpx")]
+position = Vector2(-41, 327)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_sp753")
@@ -261,16 +224,3 @@ modulate = Color(0.69119865, 0.86207265, 0.98199487, 1)
 material = ExtResource("12_xmbpx")
 position = Vector2(933, 562)
 texture = SubResource("NoiseTexture2D_xmbpx")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_b1b6h")
-position = Vector2(1133, 339)
-amount = 50
-texture = SubResource("GradientTexture2D_b01uj")
-lifetime = 5.0
-randomness = 0.75
-visibility_rect = Rect2(-1000, -200, 2000, 400)
-process_material = SubResource("ParticleProcessMaterial_xpnnf")
-
-[editable path="Player"]

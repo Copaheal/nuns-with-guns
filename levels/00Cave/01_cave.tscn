@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://c0wdkls6a0ec"]
+[gd_scene load_steps=15 format=4 uid="uid://c0wdkls6a0ec"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_whpxw"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="2_w13j7"]
+[ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="3_4plfl"]
 [ext_resource type="Texture2D" uid="uid://dpy2fm5tipw6x" path="res://Assets/Backgrounds/Cave/background1.png" id="3_cx7vd"]
 [ext_resource type="Texture2D" uid="uid://icrf5hpopnnr" path="res://Assets/Backgrounds/Cave/background2.png" id="4_fjq3x"]
 [ext_resource type="Texture2D" uid="uid://b15djphrc7c6x" path="res://Assets/Backgrounds/Cave/background3.png" id="5_dhqh8"]
@@ -32,6 +33,21 @@ script = ExtResource("1_whpxw")
 width = 992
 height = 622
 metadata/_custom_type_script = "uid://crm4dveubgrba"
+
+[node name="LevelTransition" parent="." instance=ExtResource("7_w13j7")]
+position = Vector2(0, 576)
+size = 4
+target_level = "uid://b1jkg4y8uvmy"
+
+[node name="LevelTransition2" parent="." instance=ExtResource("7_w13j7")]
+z_index = 256
+position = Vector2(24, 0)
+size = 4
+location = 2
+target_level = "uid://b16sla3kyw34m"
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_4plfl")]
+position = Vector2(313, 225)
 
 [node name="TileMaps" type="Node" parent="."]
 
@@ -108,18 +124,6 @@ texture = ExtResource("6_4plfl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxed/Parallaxed Foreground"]
 
-[node name="LevelTransition" parent="." instance=ExtResource("7_w13j7")]
-position = Vector2(0, 576)
-size = 4
-target_level = "uid://b1jkg4y8uvmy"
-
-[node name="LevelTransition2" parent="." instance=ExtResource("7_w13j7")]
-z_index = 256
-position = Vector2(24, 0)
-size = 4
-location = 2
-target_level = "uid://b16sla3kyw34m"
-
 [node name="Props" type="Node2D" parent="."]
 
 [node name="AnimatedTorch" parent="Props" instance=ExtResource("8_cx7vd")]
@@ -137,7 +141,9 @@ position = Vector2(800, 208)
 [node name="AnimatedTorch6" parent="Props" instance=ExtResource("8_cx7vd")]
 position = Vector2(240, 200)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Lighting"]
 position = Vector2(150, -144)
 rotation = 0.22823733
 color = Color(0.4745098, 0.4392157, 0.29411766, 1)
@@ -146,7 +152,7 @@ shadow_enabled = true
 texture = ExtResource("9_fjq3x")
 offset = Vector2(0, 256)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lighting"]
 color = Color(0.44137448, 0.47883314, 0.48885643, 1)
 energy = 1.4
 blend_mode = 2
