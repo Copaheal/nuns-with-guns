@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://cqlkqwhd1jppb"
 [autoload]
 
 SceneManager="*res://00_Global/Scene Manager/Scene_Manager.tscn"
+SaveManager="*res://00_Global/Save Manager/save_manager.gd"
 
 [display]
 

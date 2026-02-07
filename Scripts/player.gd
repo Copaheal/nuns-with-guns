@@ -35,6 +35,17 @@ var previous_state:PlayerState:
 
 #endregion
 
+#region // Player stats
+
+var hp:float = 20
+var max_hp:float = 20
+var dash:bool = false
+var double_jump:bool = false
+var ground_slam:bool = false
+var slide:bool = false
+
+#endregion
+
 #region // Standard Variables
 
 #Dash variables
@@ -78,7 +89,7 @@ func _physics_process(_delta: float) -> void:
 	velocity.y = clampf(velocity.y, -1000, max_fall_velocity)
 
 	#Dash Activation
-	dash(_delta)
+	#dash(_delta)
 	move_and_slide()
 	change_state( current_state.physics_process( _delta))
 
@@ -137,25 +148,25 @@ func update_direction() -> void:
 	pass
 
 #Ability Logic
-func dash(delta):
-		#Dash Activation
-	if Input.is_action_just_pressed("dash") and direction.x and not is_dashing and dash_timer <= 0:
-		is_dashing = true
-		dash_start_position = position.x
-		dash_direction = direction
-		dash_timer = dash_cooldown
-		
-	#Performs actual dash
-	if is_dashing:
-		var current_distance = abs(position.x - dash_start_position)
-		if current_distance >= dash_max_distance or is_on_wall():
-			is_dashing = false
-			anim_player.play("Falling")
-		else:
-			anim_player.play("Dash")
-			velocity.x = dash_direction.x * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
-			velocity.y = 0
-				
-	#Reduces the Dash Timer
-	if dash_timer > 0:
-		dash_timer -= delta
+#func dash(delta):
+		##Dash Activation
+	#if Input.is_action_just_pressed("dash") and direction.x and not is_dashing and dash_timer <= 0:
+		#is_dashing = true
+		#dash_start_position = position.x
+		#dash_direction = direction
+		#dash_timer = dash_cooldown
+		#
+	##Performs actual dash
+	#if is_dashing:
+		#var current_distance = abs(position.x - dash_start_position)
+		#if current_distance >= dash_max_distance or is_on_wall():
+			#is_dashing = false
+			#anim_player.play("Falling")
+		#else:
+			#anim_player.play("Dash")
+			#velocity.x = dash_direction.x * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
+			#velocity.y = 0
+				#
+	##Reduces the Dash Timer
+	#if dash_timer > 0:
+		#dash_timer -= delta

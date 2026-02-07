@@ -653,6 +653,7 @@ max_results = 12
 collision_mask = 2
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+process_mode = 3
 zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = -400

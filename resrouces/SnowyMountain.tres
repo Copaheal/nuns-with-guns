@@ -1,7 +1,10 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cog5j7dg10ard"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://cog5j7dg10ard"]
 
 [ext_resource type="Texture2D" uid="uid://dtyp65yhfoxov" path="res://Assets/TileSets/Snowy Mountain/mainlevbuild1.png" id="1_tnhdx"]
 [ext_resource type="Texture2D" uid="uid://i2ptdkpxrt2e" path="res://Assets/TileSets/Snowy Mountain/mainlevbuild2.png" id="2_5a2q1"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_tnhdx"]
+tile_data = PackedInt32Array(0, 851968, 57, 65536, 851968, 58, 262144, 851968, 61, 327680, 851968, 62, 1, 917504, 57, 65537, 917504, 58, 131073, 917504, 59, 196609, 917504, 60, 262145, 917504, 61, 327681, 917504, 62, 2, 983040, 57, 65538, 983040, 58, 131074, 983040, 59, 196610, 983040, 60, 262146, 983040, 61, 327682, 983040, 62, 3, 1048576, 57, 65539, 1048576, 58, 262147, 1048576, 61, 327683, 1048576, 62)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lcgx5"]
 texture = ExtResource("1_tnhdx")
@@ -2396,3 +2399,4 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lcgx5")
 sources/1 = SubResource("TileSetAtlasSource_r58bo")
+pattern_0 = SubResource("TileMapPattern_tnhdx")

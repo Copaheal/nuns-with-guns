@@ -44,7 +44,7 @@ location = 1
 target_level = "uid://c0wdkls6a0ec"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("13_xmbpx")]
-position = Vector2(-41, 327)
+position = Vector2(-40, 320)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_sp753")

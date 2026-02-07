@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=4 uid="uid://c3ger6v0xdh5"]
+
+[ext_resource type="TileSet" uid="uid://cog5j7dg10ard" path="res://resrouces/SnowyMountain.tres" id="1_3mdyg"]
+
+[node name="Sprite2D" type="Sprite2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD///v/AAAOADoAAAD///z/AAAOADsAAAD/////AAAOAD4AAAAAAPv/AAAPADoAAAAAAPz/AAAPADsAAAAAAP3/AAAPADwAAAAAAP7/AAAPAD0AAAAAAP//AAAPAD4AAAABAPv/AAAQADoAAAABAP7/AAAQAD0AAAABAP//AAAQAD4AAAD+//r/AAANADkAAAD+//v/AAANADoAAAD+//7/AAANAD0AAAD+////AAANAD4AAAD///r/AAAOADkAAAD///3/AAAOADwAAAD///7/AAAOAD0AAAAAAPr/AAAPADkAAAABAPr/AAAQADkAAAA=")
+tile_set = ExtResource("1_3mdyg")
