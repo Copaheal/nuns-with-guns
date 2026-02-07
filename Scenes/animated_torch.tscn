@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c147f6vsvri3o"]
+[gd_scene load_steps=19 format=3 uid="uid://c147f6vsvri3o"]
 
 [ext_resource type="Texture2D" uid="uid://cykwf08ekej74" path="res://Assets/TileSets/Cave Parts/animated_torch.png" id="1_tfrvm"]
 [ext_resource type="Script" uid="uid://df4egj4vy07f" path="res://Scripts/light_flicker.gd" id="2_lqh07"]
@@ -86,6 +86,33 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lqh07"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_lqh07"]
+offsets = PackedFloat32Array(0, 0.9953704)
+colors = PackedColorArray(1.353256, 0.8036162, 0, 1, 1.2642666, 0.053406347, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v7rn2"]
+gradient = SubResource("Gradient_lqh07")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x5b41"]
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 150.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_v7rn2")
+turbulence_enabled = true
+turbulence_influence_max = 0.3
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
+
 [node name="AnimatedTorch" type="AnimatedSprite2D"]
 z_index = -1
 scale = Vector2(0.5, 0.5)
@@ -99,3 +126,10 @@ position = Vector2(0, -26)
 texture = SubResource("GradientTexture2D_x5b41")
 script = ExtResource("2_lqh07")
 flicker_frequency = 0.3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_lqh07")
+position = Vector2(0, -42)
+amount = 4
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_x5b41")

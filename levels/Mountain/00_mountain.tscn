@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://b16sla3kyw34m"]
+[gd_scene load_steps=10 format=4 uid="uid://b16sla3kyw34m"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_l6bd0"]
 [ext_resource type="Texture2D" uid="uid://cjnduwfrned85" path="res://Assets/Backgrounds/Snowy Mountain/background1.png" id="2_hgeb6"]
 [ext_resource type="Texture2D" uid="uid://dbhrv8sfgklyb" path="res://Assets/Backgrounds/Snowy Mountain/background2a.png" id="3_ryt11"]
+[ext_resource type="TileSet" uid="uid://cog5j7dg10ard" path="res://resrouces/SnowyMountain.tres" id="4_gyohb"]
 [ext_resource type="Texture2D" uid="uid://fttd0lnlm5uc" path="res://Assets/Backgrounds/Snowy Mountain/background3.png" id="4_yyv8l"]
 [ext_resource type="Texture2D" uid="uid://cayeaqbxmj4p7" path="res://Assets/Backgrounds/Snowy Mountain/background4.png" id="5_udr33"]
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="6_71fd7"]
@@ -14,28 +15,58 @@
 [node name="LevelBounds" type="Node2D" parent="."]
 z_index = 256
 script = ExtResource("1_l6bd0")
-width = 1536
+width = 480
 height = 526
 metadata/_custom_type_script = "uid://crm4dveubgrba"
 
-[node name="TileMaps" type="Node" parent="."]
+[node name="LevelTransition" parent="." instance=ExtResource("8_66t2u")]
+z_index = 256
+position = Vector2(24, 528)
+size = 4
+location = 3
+target_level = "uid://c0wdkls6a0ec"
+target_area_name = "LevelTransition2"
 
-[node name="CaveBackground" type="TileMapLayer" parent="TileMaps"]
+[node name="Cave TileMap" type="Node2D" parent="."]
+
+[node name="CaveBackground" type="TileMapLayer" parent="Cave TileMap"]
+z_index = -2
 tile_map_data = PackedByteArray("AAABABwAAAADADAAAAABAB0AAAAOAC4AAAABAB4AAAAOAC8AAAABAB8AAAAOADAAAAABACAAAAAOADEAAAACABwAAAAEADAAAAACAB0AAAAPAC4AAAACAB4AAAAPAC8AAAACAB8AAAAPADAAAAACACAAAAAPADEAAAADABwAAAAGACgAAAADAB0AAAAQAC4AAAADAB4AAAAQAC8AAAADAB8AAAAQADAAAAADACAAAAAQADEAAAAEABwAAAAHACgAAAAEAB0AAAARAC4AAAAEAB4AAAARAC8AAAAEAB8AAAARADAAAAAEACAAAAARADEAAAAFABwAAAAJACgAAAAFAB0AAAASAC4AAAAFAB4AAAASAC8AAAAFAB8AAAASADAAAAAFACAAAAASADEAAAAGABwAAAALACgAAAAGAB0AAAATAC4AAAAGAB4AAAATAC8AAAAGAB8AAAATADAAAAAGACAAAAATADEAAAAHABwAAAANACgAAAAHAB0AAAAOADMAAAAHAB4AAAAOADQAAAAHAB8AAAAOADUAAAAHACAAAAAOADYAAAAIABwAAAAOACgAAAAIAB0AAAAPADMAAAAIAB4AAAAPADQAAAAIAB8AAAAPADUAAAAIACAAAAAPADYAAAAJAB0AAAADADAAAAAJAB4AAAAQADQAAAAJAB8AAAAQADUAAAAJACAAAAAQADYAAAAKAB0AAAAEADAAAAABABsAAAADAC8AAAACABsAAAAEAC8AAAADABsAAAAGACcAAAAEABsAAAAHACcAAAAFABsAAAAJACcAAAAGABsAAAALACcAAAAHABsAAAANACcAAAAIABsAAAAOACcAAAAJABwAAAADAC8AAAAKABwAAAAEAC8AAAA=")
 tile_set = ExtResource("7_i8m8l")
 
-[node name="CaveMidGround" type="TileMapLayer" parent="TileMaps"]
-tile_map_data = PackedByteArray("AAAAABoAAAAQAAsAAAAAABsAAAAQAAwAAAAAABwAAAAOABQAAAAAAB0AAAAOABUAAAAAAB4AAAAMABIAAAAAAB8AAAAPABIAAAAAACAAAAASABIAAAABABsAAAARAAwAAAABABwAAAAPABQAAAABAB0AAAAPABUAAAABAB4AAAANABIAAAABAB8AAAAQABIAAAABACAAAAATABIAAAAJAB4AAAAZAAwAAAAJAB8AAAAbABUAAAAJACAAAAAcAA4AAAAKAB0AAAAaAAsAAAAKAB4AAAAaAAwAAAAKAB8AAAAcABUAAAAKACAAAAARAAYAAAAAABkAAAAQAAoAAAABABoAAAARAAsAAAAJAB0AAAAZAAsAAAAKABwAAAAaAAoAAAA=")
+[node name="CaveMidGround" type="TileMapLayer" parent="Cave TileMap"]
+tile_map_data = PackedByteArray("AAAAABwAAAAOABQAAAAAAB0AAAAOABUAAAAAAB4AAAAMABIAAAAAAB8AAAAPABIAAAAAACAAAAASABIAAAABABwAAAAPABQAAAABAB0AAAAPABUAAAABAB4AAAANABIAAAABAB8AAAAQABIAAAABACAAAAATABIAAAAKABwAAAAaAAoAAAAAABQAAAAQAAoAAAAAABUAAAAQAAsAAAAAABYAAAAQAAwAAAABABUAAAARAAsAAAABABYAAAARAAwAAAAAABcAAAAOABQAAAAAABgAAAAOABUAAAABABcAAAAPABQAAAABABgAAAAPABUAAAAAABkAAAAMABIAAAABABkAAAANABIAAAAAABoAAAAPABIAAAABABoAAAAQABIAAAAAABsAAAASABIAAAABABsAAAATABIAAAA=")
 tile_set = ExtResource("7_i8m8l")
 
-[node name="CavePlatformLayer" type="TileMapLayer" parent="TileMaps"]
+[node name="CavePlatformLayer" type="TileMapLayer" parent="Cave TileMap"]
 z_index = 1
 position = Vector2(21, 23)
 tile_map_data = PackedByteArray("AAACAB4AAAAhAA8AAAADAB4AAAAiAA8AAAAEAB4AAAAkAA8AAAAFAB4AAAAIAA8AAAAGAB4AAAAJAA8AAAA=")
 tile_set = ExtResource("7_i8m8l")
 
-[node name="ForeGround" type="TileMapLayer" parent="TileMaps"]
+[node name="CaveForeGround" type="TileMapLayer" parent="Cave TileMap"]
+z_index = 3
 tile_set = ExtResource("7_i8m8l")
+
+[node name="Mountain Tilemap" type="Node2D" parent="."]
+
+[node name="MtnBackground" type="TileMapLayer" parent="Mountain Tilemap"]
+z_index = -2
+tile_map_data = PackedByteArray("AAAEAB8AAAAQAAEAAAAFAB8AAAARAAEAAAAGAB8AAAASAAEAAAAHAB8AAAATAAEAAAA=")
+tile_set = ExtResource("4_gyohb")
+
+[node name="MtnMidGround" type="TileMapLayer" parent="Mountain Tilemap"]
+tile_map_data = PackedByteArray("AAAJABwAAAAjAAAAAAAJAB0AAAAjAAEAAAAJAB4AAAAjAAIAAAAJAB8AAAAqAAcAAAAJACAAAAAqAAgAAAAKABwAAAAkAAAAAAAKAB0AAAAkAAEAAAAKAB4AAAAkAAIAAAAKAB8AAAArAAcAAAAKACAAAAArAAgAAAALABwAAAAhAAQAAAALAB0AAAARAAcAAAALAB4AAAARAAgAAAALAB8AAAAIABQAAAALACAAAAAIABUAAAAMABwAAAAJAAAAAAAMAB0AAAASABUAAAAMAB4AAAAJAAgAAAAMAB8AAAAJABQAAAAMACAAAAAJABUAAAANABwAAAAFABkAAAANAB0AAAAFABoAAAANAB4AAAAKAAgAAAANAB8AAAAKABQAAAANACAAAAAKABUAAAAOABwAAAAGABkAAAAOAB0AAAAGABoAAAAOAB4AAAALAAgAAAAOAB8AAAALABQAAAAOACAAAAALABUAAAAPAB8AAAAMABQAAAAPACAAAAAMABUAAAAQAB8AAAANABQAAAAQACAAAAANABUAAAARAB8AAAAOABQAAAARACAAAAAOABUAAAASAB8AAAAPABQAAAASACAAAAAPABUAAAATAB8AAAAQABQAAAATACAAAAAQABUAAAAUAB8AAAARABQAAAAUACAAAAARABUAAAAVAB8AAAASABQAAAAVACAAAAASABUAAAAWAB8AAAATABQAAAAWACAAAAATABUAAAAXAB8AAAAcABQAAAAXACAAAAAcABUAAAAYAB8AAAAdABQAAAAYACAAAAAdABUAAAAZAB8AAAAeABQAAAAZACAAAAAeABUAAAAaAB8AAAAfABQAAAAaACAAAAAfABUAAAAbAB8AAAAgABQAAAAbACAAAAAgABUAAAAcAB8AAAAhABQAAAAcACAAAAAhABUAAAAdAB8AAAAiABQAAAAdACAAAAAiABUAAAAeAB8AAAAjABQAAAAeACAAAAAjABUAAAA=")
+tile_set = ExtResource("4_gyohb")
+
+[node name="MtnPlatformLayer" type="TileMapLayer" parent="Mountain Tilemap"]
+z_index = 1
+position = Vector2(21, 23)
+tile_set = ExtResource("4_gyohb")
+
+[node name="MtnForeGround2" type="TileMapLayer" parent="Mountain Tilemap"]
+z_index = 3
+tile_set = ExtResource("4_gyohb")
 
 [node name="Parallaxed Background" type="Node2D" parent="."]
 
@@ -98,11 +129,3 @@ texture_filter = 1
 position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("6_71fd7")
-
-[node name="LevelTransition" parent="." instance=ExtResource("8_66t2u")]
-z_index = 256
-position = Vector2(24, 528)
-size = 4
-location = 3
-target_level = "uid://c0wdkls6a0ec"
-target_area_name = "LevelTransition2"
