@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ddyfrooekrk0h"]
+[gd_scene load_steps=35 format=3 uid="uid://ddyfrooekrk0h"]
 
 [ext_resource type="Script" uid="uid://5g8jm46upk0r" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cvuyu5yfyogts" path="res://Assets/Character/_Idle.png" id="1_v0iea"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://eti2ik3wfcw1" path="res://Scripts/States/idle.gd" id="11_pu2lt"]
 [ext_resource type="Script" uid="uid://cpv2o0cfvloa4" path="res://Scripts/States/run.gd" id="12_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cc8k7dsjfcgnb" path="res://Assets/Character/_JumpFallInbetween.png" id="13_h4iuc"]
+[ext_resource type="Script" uid="uid://nway8v36nb0m" path="res://Scripts/input_hints.gd" id="16_qqcod"]
+[ext_resource type="Texture2D" uid="uid://cireumdvxchy7" path="res://Assets/VariousSprites/icons-keyboard-16x16-1bit-ansdor2.png" id="17_qqcod"]
 
 [sub_resource type="Curve" id="Curve_cvnsp"]
 _data = [Vector2(0.032608703, 1), 0.0, 0.0, 0, 0, Vector2(0.9782609, 0.49438208), -1.7917597, 0.0, 0, 0]
@@ -575,6 +577,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 2
 collision_layer = 8
 collision_mask = 7
 floor_snap_length = 3.0
@@ -666,3 +669,15 @@ position = Vector2(0, -18)
 color = Color(0.7645838, 0.75798947, 0.6411534, 1)
 energy = 0.75
 texture = SubResource("GradientTexture2D_fd4e3")
+
+[node name="InputHints" type="Node2D" parent="."]
+position = Vector2(0, -46)
+script = ExtResource("16_qqcod")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputHints"]
+position = Vector2(0, -4)
+texture = ExtResource("17_qqcod")
+hframes = 12
+vframes = 7
+frame = 16
+region_rect = Rect2(-10, 0, 456, 13)

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="6_71fd7"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="7_i8m8l"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="8_66t2u"]
-[ext_resource type="PackedScene" uid="uid://c3ger6v0xdh5" path="res://Scenes/save_statue.tscn" id="11_m8627"]
+[ext_resource type="PackedScene" uid="uid://bxfshplx0rs1t" path="res://Scenes/save_point.tscn" id="11_m8627"]
 
 [node name="00_Mountain" type="Node2D"]
 
@@ -31,6 +31,9 @@ target_area_name = "LevelTransition2"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_hlm5k")]
 position = Vector2(183, 452)
+
+[node name="SavePoint" parent="." instance=ExtResource("11_m8627")]
+position = Vector2(352, 508)
 
 [node name="Cave TileMap" type="Node2D" parent="."]
 
@@ -135,8 +138,3 @@ texture_filter = 1
 position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("6_71fd7")
-
-[node name="SavePoint" type="Node2D" parent="."]
-position = Vector2(352, 508)
-
-[node name="Sprite2D" parent="SavePoint" instance=ExtResource("11_m8627")]

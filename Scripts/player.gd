@@ -70,10 +70,13 @@ func _ready() -> void:
 		self.queue_free()
 	initialize_states()
 	self.call_deferred("reparent", get_tree().root)
+	Messages.player_healed.connect(on_player_healed)
 	pass
 
-func _unhandled_input( _event: InputEvent ) -> void:
-	change_state( current_state.handle_input( _event ) )
+func _unhandled_input( event: InputEvent ) -> void:
+	if event.is_action_pressed("action"):
+		Messages.player_interacted.emit(self)
+	change_state( current_state.handle_input( event ) )
 	pass 
 
 
@@ -170,3 +173,9 @@ func update_direction() -> void:
 	##Reduces the Dash Timer
 	#if dash_timer > 0:
 		#dash_timer -= delta
+
+func on_player_healed(amount:float)->void:
+	hp += amount
+	print("Player healed for: ", amount)
+	#audio/visual
+	pass
