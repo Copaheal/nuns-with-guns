@@ -53,7 +53,7 @@ func get_controller_type(device_id:int)->void:
 	#elif "nintendo" in n or "switch" in n:
 		#controller_type = "nintendo"
 	else:
-		controller_type = "unkown"
+		controller_type = "keyboard"
 	
 	print(controller_type)
 	set_process_input(false)

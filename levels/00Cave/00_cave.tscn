@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b1jkg4y8uvmy"]
+[gd_scene load_steps=15 format=4 uid="uid://b1jkg4y8uvmy"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_2fqq6"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="3_e2uee"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://3d0u3d6iha0s" path="res://Assets/Backgrounds/Cave/background4a.png" id="9_lsaem"]
 [ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/animated_torch.tscn" id="10_e2uee"]
 [ext_resource type="Texture2D" uid="uid://7g8re4bntl1a" path="res://Assets/TileSets/light_stream.jpg" id="11_2fqq6"]
-[ext_resource type="AudioStream" uid="uid://bd4a1hqus2doq" path="res://Assets/music/Gallery of the Damned.mp3" id="11_sp753"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="12_b1b6h"]
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="12_xmbpx"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="13_xmbpx"]
@@ -45,11 +44,6 @@ target_level = "uid://c0wdkls6a0ec"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("13_xmbpx")]
 position = Vector2(-40, 320)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_sp753")
-autoplay = true
-bus = &"Music"
 
 [node name="Tilemaps" type="Node2D" parent="."]
 

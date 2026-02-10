@@ -37,6 +37,10 @@ window/stretch/mode="canvas_items"
 
 Player=""
 
+[gui]
+
+theme/custom_font="uid://b6t17f2grvsat"
+
 [input]
 
 left={
