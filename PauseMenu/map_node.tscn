@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://u6i7ldvgi6bw"]
+
+[ext_resource type="Script" uid="uid://7bh63i1encaj" path="res://PauseMenu/Scripts/map_node.gd" id="1_cuwib"]
+
+[node name="MapNode" type="Control"]
+custom_minimum_size = Vector2(24, 12)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 12.0
+offset_bottom = 6.0
+script = ExtResource("1_cuwib")
+linked_scene = null
+
+[node name="Top" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Bottom" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Left" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="Right" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.38039216)
+layout_mode = 0
+offset_left = 3.9999998
+offset_top = 3.9999998
+offset_right = 87.0
+offset_bottom = 19.0
+scale = Vector2(0.2, 0.2)
+text = "Level Name"
+
+[node name="TransitionBlocks" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

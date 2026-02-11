@@ -1,0 +1,235 @@
+[gd_scene load_steps=4 format=3 uid="uid://s27ydr6jg4ht"]
+
+[ext_resource type="Script" uid="uid://bqc6kjsws0vfv" path="res://PauseMenu/Scripts/pause_menu.gd" id="1_tobvk"]
+[ext_resource type="PackedScene" uid="uid://u6i7ldvgi6bw" path="res://PauseMenu/map_node.tscn" id="2_ganop"]
+
+[sub_resource type="FontVariation" id="FontVariation_tobvk"]
+spacing_glyph = 8
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_tobvk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.09411765, 0.09411765, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(0, 78)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/ColorRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -15.0
+offset_right = -20.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.29634023, 0.16571008, 0.16571008, 1)
+theme_override_fonts/font = SubResource("FontVariation_tobvk")
+theme_override_font_sizes/font_size = 32
+text = "PAUSED"
+horizontal_alignment = 2
+
+[node name="PauseScreen" type="Control" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AbilitiesLabel" type="Label" parent="Control/PauseScreen"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 82.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 32
+text = "Abilities"
+
+[node name="MapLabel" type="Label" parent="Control/PauseScreen"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 12.0
+offset_right = 266.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 32
+text = "Map"
+
+[node name="Map" type="Control" parent="Control/PauseScreen"]
+anchors_preset = 0
+offset_left = 214.0
+offset_top = 53.0
+offset_right = 919.0
+offset_bottom = 387.0
+
+[node name="MapNode" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 39.0
+offset_right = 52.0
+offset_bottom = 51.0
+linked_scene = ""
+
+[node name="MapNode2" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 32.0
+offset_right = 78.0
+offset_bottom = 51.0
+linked_scene = ""
+
+[node name="MapNode3" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 18.0
+offset_right = 78.0
+offset_bottom = 30.0
+linked_scene = ""
+
+[node name="SystemMenuButton" type="Button" parent="Control/PauseScreen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = -58.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "System
+"
+
+[node name="System" type="Control" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/System"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -328.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 437.9645
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BackToMapButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Back to Map"
+
+[node name="BackToTitleButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Return to Title"
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Audio Levels"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5

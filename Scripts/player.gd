@@ -37,8 +37,16 @@ var previous_state:PlayerState:
 
 #region // Player stats
 
-var hp:float = 20
-var max_hp:float = 20
+var hp:float = 20 : 
+	set(value):
+		hp = clampf(value, 0, max_hp)
+		Messages.player_health_changed.emit(hp,max_hp)
+		
+var max_hp:float = 20 :
+	set(value):
+		max_hp = value
+		Messages.player_health_changed.emit(hp,max_hp)
+		
 var dash:bool = false
 var double_jump:bool = false
 var ground_slam:bool = false
@@ -76,6 +84,27 @@ func _ready() -> void:
 func _unhandled_input( event: InputEvent ) -> void:
 	if event.is_action_pressed("action"):
 		Messages.player_interacted.emit(self)
+	elif event.is_action_pressed("pause"):
+		get_tree().paused = true
+		var pause_menu:PauseMenu = load("res://PauseMenu/pause_menu.tscn").instantiate()
+		add_child(pause_menu)
+		return
+	
+	
+	#Temp code for debug
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_MINUS:
+			if Input.is_key_pressed(KEY_SHIFT):
+				max_hp -= 10
+			else:
+				hp -= 2
+		elif event.keycode == KEY_EQUAL:
+			if Input.is_key_pressed(KEY_SHIFT):
+				max_hp += 10
+			else:
+				hp += 2
+	#End temp code
+	
 	change_state( current_state.handle_input( event ) )
 	pass 
 
@@ -132,7 +161,6 @@ func change_state(new_state:PlayerState) -> void:
 	states.push_front( new_state )
 	current_state.enter()
 	states.resize( 3 )
-	#$Label.text = current_state.name
 	pass
 
 func update_direction() -> void:
@@ -177,5 +205,6 @@ func update_direction() -> void:
 func on_player_healed(amount:float)->void:
 	hp += amount
 	print("Player healed for: ", amount)
+	
 	#audio/visual
 	pass

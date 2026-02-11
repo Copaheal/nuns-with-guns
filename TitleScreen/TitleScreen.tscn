@@ -10,62 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="8_weemw"]
 [ext_resource type="AudioStream" uid="uid://bd4a1hqus2doq" path="res://Assets/music/Gallery of the Damned.mp3" id="9_j3fyg"]
 
-[sub_resource type="Animation" id="Animation_j3fyg"]
-resource_name = "Start"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(2.5, 2.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 100), Vector2(0, 30)]
-}
-
-[sub_resource type="Animation" id="Animation_mhd54"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.5, 2.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 100)]
-}
-
 [sub_resource type="Animation" id="Animation_j8ysg"]
 resource_name = "Loop"
 length = 1.5
@@ -96,6 +40,62 @@ tracks/1/keys = {
 "values": [Vector2(0, 30), Vector2(0, 45)]
 }
 
+[sub_resource type="Animation" id="Animation_mhd54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_j3fyg"]
+resource_name = "Start"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, 30)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eufha"]
 _data = {
 &"Loop": SubResource("Animation_j8ysg"),
@@ -108,6 +108,7 @@ layer = 5
 script = ExtResource("1_70hon")
 
 [node name="Control" type="Control" parent="."]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,57 +147,37 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAhABkAAAANADkAAAAhABoAAAANADoAAAAhAB0AAAANAD0AAAAhAB4AAAAiACIAAAAiABkAAAAOADkAAAAiABoAAAAOADoAAAAiABsAAAAOADsAAAAiABwAAAAOADwAAAAiAB0AAAAOAD0AAAAiAB4AAAAOAD4AAAAjABkAAAAPADkAAAAjABoAAAAPADoAAAAjABsAAAAPADsAAAAjABwAAAAPADwAAAAjAB0AAAAPAD0AAAAjAB4AAAAPAD4AAAAkABkAAAAQADkAAAAkABoAAAAQADoAAAAkAB0AAAAQAD0AAAAkAB4AAAAkACEAAAAuABUAAAAkACEAAAAuABYAAAAkACIAAAAvABUAAAAlACEAAAAvABYAAAAlACIAAAAwABUAAAAgACYAAAAwABYAAAAgACcAAAAxABUAAAAhACYAAAAxABYAAAAhACcAAAAyABUAAAAiACYAAAAyABYAAAAiACcAAAAzABUAAAAjACYAAAAzABYAAAAjACcAAAA0ABUAAAAkACYAAAA0ABYAAAAkACcAAAA1ABUAAAAlACYAAAA1ABYAAAAlACcAAAA2ABUAAAAhACQAAAA2ABYAAAAhACUAAAAgAB4AAAAhACIAAAAgAB8AAAAhACMAAAAhAB8AAAAiACMAAAAkAB8AAAAkACIAAAAlAB4AAAAhACQAAAAlAB8AAAAhACUAAAAeAB4AAAAhACAAAAAeAB8AAAAhACEAAAAfAB4AAAAiACAAAAAfAB8AAAAiACEAAAAmAB4AAAAiACQAAAAmAB8AAAAiACUAAAAnAB4AAAAjACQAAAAnAB8AAAAjACUAAAA3ABUAAAAiACQAAAA3ABYAAAAiACUAAAA4ABUAAAAjACQAAAA4ABYAAAAjACUAAAAxAAYAAAAkACEAAAAxAAcAAAAkACIAAAAyAAYAAAAlACEAAAAyAAcAAAAlACIAAAA7AAkAAAAhACUAADA7AAoAAAAhACQAADA6AAkAAAAiACUAADA6AAoAAAAiACQAADA5AAkAAAAjACUAADA5AAoAAAAjACQAADA1AAkAAAAkACIAADA1AAoAAAAkACEAADA0AAkAAAAlACIAADA0AAoAAAAlACEAADAUABkAAAAGADQAAAAUABoAAAAGADUAAAAUABsAAAAGADYAAAAUABwAAAAGADcAAAAUAB0AAAAGADgAAAAUAB4AAAAGADkAAAAUAB8AAAAGADoAAAAUACAAAAAGADsAAAAUACEAAAAGADwAAAAUACIAAAAGAD0AAAAUACMAAAAGAD4AAAAVABkAAAAHADQAAAAVABoAAAAHADUAAAAVABsAAAAHADYAAAAVABwAAAAHADcAAAAVAB0AAAAHADgAAAAVAB4AAAAHADkAAAAVAB8AAAAHADoAAAAVACAAAAAHADsAAAAVACEAAAAHADwAAAAVACIAAAAHAD0AAAAVACMAAAAHAD4AAAAWABkAAAAIADQAAAAWABoAAAAIADUAAAAWABsAAAAIADYAAAAWABwAAAAIADcAAAAWAB0AAAAIADgAAAAWAB4AAAAIADkAAAAWAB8AAAAIADoAAAAWACAAAAAIADsAAAAWACEAAAAIADwAAAAWACIAAAAIAD0AAAAWACMAAAAIAD4AAAAXABkAAAAJADQAAAAXABoAAAAJADUAAAAXABsAAAAJADYAAAAXABwAAAAJADcAAAAXAB0AAAAJADgAAAAXAB4AAAAJADkAAAAXAB8AAAAJADoAAAAXACAAAAAJADsAAAAXACEAAAAJADwAAAAXACIAAAAJAD0AAAAXACMAAAAJAD4AAAAUAA4AAAAGADQAAAAUAA8AAAAGADUAAAAUABAAAAAGADYAAAAUABEAAAAGADcAAAAUABIAAAAGADgAAAAUABMAAAAGADkAAAAUABQAAAAGADoAAAAUABUAAAAGADsAAAAUABYAAAAGADwAAAAUABcAAAAGAD0AAAAUABgAAAAGAD4AAAAVAA4AAAAHADQAAAAVAA8AAAAHADUAAAAVABAAAAAHADYAAAAVABEAAAAHADcAAAAVABIAAAAHADgAAAAVABMAAAAHADkAAAAVABQAAAAHADoAAAAVABUAAAAHADsAAAAVABYAAAAHADwAAAAVABcAAAAHAD0AAAAVABgAAAAHAD4AAAAWAA4AAAAIADQAAAAWAA8AAAAIADUAAAAWABAAAAAIADYAAAAWABEAAAAIADcAAAAWABIAAAAIADgAAAAWABMAAAAIADkAAAAWABQAAAAIADoAAAAWABUAAAAIADsAAAAWABYAAAAIADwAAAAWABcAAAAIAD0AAAAWABgAAAAIAD4AAAAXAA4AAAAJADQAAAAXAA8AAAAJADUAAAAXABAAAAAJADYAAAAXABEAAAAJADcAAAAXABIAAAAJADgAAAAXABMAAAAJADkAAAAXABQAAAAJADoAAAAXABUAAAAJADsAAAAXABYAAAAJADwAAAAXABcAAAAJAD0AAAAXABgAAAAJAD4AAAAUAAMAAAAGADQAAAAUAAQAAAAGADUAAAAUAAUAAAAGADYAAAAUAAYAAAAGADcAAAAUAAcAAAAGADgAAAAUAAgAAAAGADkAAAAUAAkAAAAGADoAAAAUAAoAAAAGADsAAAAUAAsAAAAGADwAAAAUAAwAAAAGAD0AAAAUAA0AAAAGAD4AAAAVAAMAAAAHADQAAAAVAAQAAAAHADUAAAAVAAUAAAAHADYAAAAVAAYAAAAHADcAAAAVAAcAAAAHADgAAAAVAAgAAAAHADkAAAAVAAkAAAAHADoAAAAVAAoAAAAHADsAAAAVAAsAAAAHADwAAAAVAAwAAAAHAD0AAAAVAA0AAAAHAD4AAAAWAAMAAAAIADQAAAAWAAQAAAAIADUAAAAWAAUAAAAIADYAAAAWAAYAAAAIADcAAAAWAAcAAAAIADgAAAAWAAgAAAAIADkAAAAWAAkAAAAIADoAAAAWAAoAAAAIADsAAAAWAAsAAAAIADwAAAAWAAwAAAAIAD0AAAAWAA0AAAAIAD4AAAAXAAMAAAAJADQAAAAXAAQAAAAJADUAAAAXAAUAAAAJADYAAAAXAAYAAAAJADcAAAAXAAcAAAAJADgAAAAXAAgAAAAJADkAAAAXAAkAAAAJADoAAAAXAAoAAAAJADsAAAAXAAsAAAAJADwAAAAXAAwAAAAJAD0AAAAXAA0AAAAJAD4AAAApABkAAAAGADQAAAApABoAAAAGADUAAAApABsAAAAGADYAAAApABwAAAAGADcAAAApAB0AAAAGADgAAAApAB4AAAAGADkAAAApAB8AAAAGADoAAAApACAAAAAGADsAAAApACEAAAAGADwAAAApACIAAAAGAD0AAAApACMAAAAGAD4AAAAqABkAAAAHADQAAAAqABoAAAAHADUAAAAqABsAAAAHADYAAAAqABwAAAAHADcAAAAqAB0AAAAHADgAAAAqAB4AAAAHADkAAAAqAB8AAAAHADoAAAAqACAAAAAHADsAAAAqACEAAAAHADwAAAAqACIAAAAHAD0AAAAqACMAAAAHAD4AAAArABkAAAAIADQAAAArABoAAAAIADUAAAArABsAAAAIADYAAAArABwAAAAIADcAAAArAB0AAAAIADgAAAArAB4AAAAIADkAAAArAB8AAAAIADoAAAArACAAAAAIADsAAAArACEAAAAIADwAAAArACIAAAAIAD0AAAArACMAAAAIAD4AAAAsABkAAAAJADQAAAAsABoAAAAJADUAAAAsABsAAAAJADYAAAAsABwAAAAJADcAAAAsAB0AAAAJADgAAAAsAB4AAAAJADkAAAAsAB8AAAAJADoAAAAsACAAAAAJADsAAAAsACEAAAAJADwAAAAsACIAAAAJAD0AAAAsACMAAAAJAD4AAAApAA4AAAAGADQAAAApAA8AAAAGADUAAAApABAAAAAGADYAAAApABEAAAAGADcAAAApABIAAAAGADgAAAApABMAAAAGADkAAAApABQAAAAGADoAAAApABUAAAAGADsAAAApABYAAAAGADwAAAApABcAAAAGAD0AAAApABgAAAAGAD4AAAAqAA4AAAAHADQAAAAqAA8AAAAHADUAAAAqABAAAAAHADYAAAAqABEAAAAHADcAAAAqABIAAAAHADgAAAAqABMAAAAHADkAAAAqABQAAAAHADoAAAAqABUAAAAHADsAAAAqABYAAAAHADwAAAAqABcAAAAHAD0AAAAqABgAAAAHAD4AAAArAA4AAAAIADQAAAArAA8AAAAIADUAAAArABAAAAAIADYAAAArABEAAAAIADcAAAArABIAAAAIADgAAAArABMAAAAIADkAAAArABQAAAAIADoAAAArABUAAAAIADsAAAArABYAAAAIADwAAAArABcAAAAIAD0AAAArABgAAAAIAD4AAAAsAA4AAAAJADQAAAAsAA8AAAAJADUAAAAsABAAAAAJADYAAAAsABEAAAAJADcAAAAsABIAAAAJADgAAAAsABMAAAAJADkAAAAsABQAAAAJADoAAAAsABUAAAAJADsAAAAsABYAAAAJADwAAAAsABcAAAAJAD0AAAAsABgAAAAJAD4AAAApAAMAAAAGADQAAAApAAQAAAAGADUAAAApAAUAAAAGADYAAAApAAYAAAAGADcAAAApAAcAAAAGADgAAAApAAgAAAAGADkAAAApAAkAAAAGADoAAAApAAoAAAAGADsAAAApAAsAAAAGADwAAAApAAwAAAAGAD0AAAApAA0AAAAGAD4AAAAqAAMAAAAHADQAAAAqAAQAAAAHADUAAAAqAAUAAAAHADYAAAAqAAYAAAAHADcAAAAqAAcAAAAHADgAAAAqAAgAAAAHADkAAAAqAAkAAAAHADoAAAAqAAoAAAAHADsAAAAqAAsAAAAHADwAAAAqAAwAAAAHAD0AAAAqAA0AAAAHAD4AAAArAAMAAAAIADQAAAArAAQAAAAIADUAAAArAAUAAAAIADYAAAArAAYAAAAIADcAAAArAAcAAAAIADgAAAArAAgAAAAIADkAAAArAAkAAAAIADoAAAArAAoAAAAIADsAAAArAAsAAAAIADwAAAArAAwAAAAIAD0AAAArAA0AAAAIAD4AAAAsAAMAAAAJADQAAAAsAAQAAAAJADUAAAAsAAUAAAAJADYAAAAsAAYAAAAJADcAAAAsAAcAAAAJADgAAAAsAAgAAAAJADkAAAAsAAkAAAAJADoAAAAsAAoAAAAJADsAAAAsAAsAAAAJADwAAAAsAAwAAAAJAD0AAAAsAA0AAAAJAD4AAAA=")
 tile_set = ExtResource("3_mhd54")
 
-[node name="Parallaxed Background" type="Node2D" parent="Control/Tilemap Container"]
+[node name="Background2" type="Node2D" parent="Control/Tilemap Container"]
 
-[node name="Parallaxed Background" type="Parallax2D" parent="Control/Tilemap Container/Parallaxed Background"]
-z_index = -5
-scroll_scale = Vector2(0.2, 0.2)
-
-[node name="Background1" type="Sprite2D" parent="Control/Tilemap Container/Parallaxed Background/Parallaxed Background"]
+[node name="Background1" type="Sprite2D" parent="Control/Tilemap Container/Background2"]
 z_index = -5
 texture_filter = 1
 position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("4_j8ysg")
 
-[node name="Parallaxed Background2" type="Parallax2D" parent="Control/Tilemap Container/Parallaxed Background"]
-z_index = -5
-scroll_scale = Vector2(0.3, 0.3)
-
-[node name="Background2" type="Sprite2D" parent="Control/Tilemap Container/Parallaxed Background/Parallaxed Background2"]
+[node name="Background2" type="Sprite2D" parent="Control/Tilemap Container/Background2"]
 z_index = -4
 texture_filter = 1
 position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("5_eufha")
 
-[node name="Parallaxed Background3" type="Parallax2D" parent="Control/Tilemap Container/Parallaxed Background"]
-z_index = -5
-scroll_scale = Vector2(0.4, 0.4)
-
-[node name="Background3" type="Sprite2D" parent="Control/Tilemap Container/Parallaxed Background/Parallaxed Background3"]
+[node name="Background3" type="Sprite2D" parent="Control/Tilemap Container/Background2"]
 z_index = -3
 texture_filter = 1
 position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("6_ooj40")
 
-[node name="Parallaxed Background4" type="Parallax2D" parent="Control/Tilemap Container/Parallaxed Background"]
-z_index = -5
-scroll_scale = Vector2(0.5, 0.5)
-
-[node name="Background4" type="Sprite2D" parent="Control/Tilemap Container/Parallaxed Background/Parallaxed Background4"]
+[node name="Background4" type="Sprite2D" parent="Control/Tilemap Container/Background2"]
 z_index = -2
 texture_filter = 1
 position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("7_7fp5u")
 
-[node name="Parallaxed Background5" type="Parallax2D" parent="Control/Tilemap Container/Parallaxed Background"]
-z_index = -5
-scroll_scale = Vector2(0.6, 0.6)
-
-[node name="Background5" type="Sprite2D" parent="Control/Tilemap Container/Parallaxed Background/Parallaxed Background5"]
+[node name="Background5" type="Sprite2D" parent="Control/Tilemap Container/Background2"]
 z_index = -2
 texture_filter = 1
 position = Vector2(592, 321)
