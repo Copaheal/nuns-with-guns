@@ -1,10 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://s27ydr6jg4ht"]
+[gd_scene load_steps=9 format=3 uid="uid://s27ydr6jg4ht"]
 
 [ext_resource type="Script" uid="uid://bqc6kjsws0vfv" path="res://PauseMenu/Scripts/pause_menu.gd" id="1_tobvk"]
 [ext_resource type="PackedScene" uid="uid://u6i7ldvgi6bw" path="res://PauseMenu/map_node.tscn" id="2_ganop"]
 
 [sub_resource type="FontVariation" id="FontVariation_tobvk"]
 spacing_glyph = 8
+
+[sub_resource type="Gradient" id="Gradient_ganop"]
+offsets = PackedFloat32Array(0, 0.5153846, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.4470588, 0.89327663, 1, 1, 0, 0.17754245, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tfo3q"]
+gradient = SubResource("Gradient_ganop")
+width = 10
+height = 10
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_3pbqp"]
+resource_name = "Default"
+length = 0.7
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.6509804, 0.81960785, 1, 0.42745098)]
+}
+
+[sub_resource type="Animation" id="Animation_q8wey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hy7yv"]
+_data = {
+&"Default": SubResource("Animation_3pbqp"),
+&"RESET": SubResource("Animation_q8wey")
+}
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -64,6 +115,75 @@ offset_top = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Map" type="Control" parent="Control/PauseScreen"]
+anchors_preset = 0
+offset_left = 214.0
+offset_top = 53.0
+offset_right = 919.0
+offset_bottom = 387.0
+
+[node name="MapNode" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 45.0
+offset_right = 143.0
+offset_bottom = 79.0
+linked_scene = "uid://b1jkg4y8uvmy"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([4.25])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([])
+
+[node name="MapNode2" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
+layout_mode = 0
+offset_left = 145.0
+offset_top = 26.0
+offset_right = 195.0
+offset_bottom = 57.0
+linked_scene = "uid://c0wdkls6a0ec"
+entrances_top = Array[float]([2.0])
+entrances_right = Array[float]([])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([22.8])
+
+[node name="MapNode3" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
+layout_mode = 0
+offset_left = 145.0
+offset_top = -2.0
+offset_right = 171.0
+offset_bottom = 24.0
+linked_scene = "uid://b16sla3kyw34m"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([])
+entrances_bottom = Array[float]([2.0])
+entrances_left = Array[float]([])
+
+[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 71.0
+offset_right = 11.0
+offset_bottom = 71.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+texture = SubResource("GradientTexture2D_tfo3q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator"]
+libraries = {
+&"": SubResource("AnimationLibrary_hy7yv")
+}
+autoplay = "Default"
+
 [node name="AbilitiesLabel" type="Label" parent="Control/PauseScreen"]
 layout_mode = 0
 offset_left = 12.0
@@ -81,40 +201,6 @@ offset_right = 266.0
 offset_bottom = 42.0
 theme_override_font_sizes/font_size = 32
 text = "Map"
-
-[node name="Map" type="Control" parent="Control/PauseScreen"]
-anchors_preset = 0
-offset_left = 214.0
-offset_top = 53.0
-offset_right = 919.0
-offset_bottom = 387.0
-
-[node name="MapNode" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
-modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
-layout_mode = 0
-offset_left = 13.0
-offset_top = 39.0
-offset_right = 52.0
-offset_bottom = 51.0
-linked_scene = ""
-
-[node name="MapNode2" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
-modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
-layout_mode = 0
-offset_left = 54.0
-offset_top = 32.0
-offset_right = 78.0
-offset_bottom = 51.0
-linked_scene = ""
-
-[node name="MapNode3" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
-modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
-layout_mode = 0
-offset_left = 54.0
-offset_top = 18.0
-offset_right = 78.0
-offset_bottom = 30.0
-linked_scene = ""
 
 [node name="SystemMenuButton" type="Button" parent="Control/PauseScreen"]
 unique_name_in_owner = true
