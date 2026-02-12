@@ -157,9 +157,22 @@ offset_right = 171.0
 offset_bottom = 24.0
 linked_scene = "uid://b16sla3kyw34m"
 entrances_top = Array[float]([])
-entrances_right = Array[float]([])
+entrances_right = Array[float]([18.0])
 entrances_bottom = Array[float]([2.0])
 entrances_left = Array[float]([])
+
+[node name="MapNode4" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
+layout_mode = 0
+offset_left = 197.0
+offset_top = 14.0
+offset_right = 336.0
+offset_bottom = 47.0
+linked_scene = "uid://dmlglxqw7jwpd"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([2.0])
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map"]
 unique_name_in_owner = true

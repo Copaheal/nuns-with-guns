@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdbfph78fqoyb"]
+
+[ext_resource type="TileSet" uid="uid://cog5j7dg10ard" path="res://resrouces/SnowyMountain.tres" id="1_ub14w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g6qg"]
+size = Vector2(80, 15)
+
+[node name="MountainPlatform" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_ub14w")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65540, 65536, 41, -4, 65536, 42, -65539, 131072, 41, -3, 131072, 42, -65538, 458752, 41, -2, 458752, 42, -65537, 851968, 41, -1, 851968, 42, -131072, 1179648, 41, -65536, 1179648, 42, -131071, 1507328, 41, -65535, 1507328, 42, -131070, 1572864, 41, -65534, 1572864, 42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
+collision_layer = 3
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
+position = Vector2(-8, -8.5)
+shape = SubResource("RectangleShape2D_8g6qg")
+one_way_collision = true

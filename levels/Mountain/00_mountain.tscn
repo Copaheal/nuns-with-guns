@@ -23,11 +23,18 @@ metadata/_custom_type_script = "uid://crm4dveubgrba"
 
 [node name="LevelTransition" parent="." instance=ExtResource("8_66t2u")]
 z_index = 256
-position = Vector2(24, 528)
+position = Vector2(23, 526)
 size = 4
 location = 3
 target_level = "uid://c0wdkls6a0ec"
 target_area_name = "LevelTransition2"
+
+[node name="LevelTransition2" parent="." instance=ExtResource("8_66t2u")]
+z_index = 256
+position = Vector2(512, 491)
+size = 4
+location = 1
+target_level = "uid://dmlglxqw7jwpd"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_hlm5k")]
 position = Vector2(183, 452)
