@@ -1,6 +1,8 @@
 #Save Manager Script
 extends Node
 
+const CONFIG_FILE_PATH = "user://settings.cfg"
+
 const SLOTS:Array[String] = [
 	"save_01", "save_02", "save_03"
 ]
@@ -13,6 +15,7 @@ var persistent_data:Dictionary = {}
 
 func _ready() -> void:
 	SceneManager.scene_entered.connect(_on_scene_entered)
+	load_configuration()
 	pass
 
 
@@ -89,7 +92,7 @@ func load_game(slot:int) -> void:
 	var save_file = FileAccess.open(get_file_name(current_slot), FileAccess.READ)
 	save_data = JSON.parse_string(save_file.get_line())
 	
-	persistent_data = save_data.get("peristent_data", {})
+	persistent_data = save_data.get("persistent_data", {})
 	discovered_areas = save_data.get("discovered_areas", [])
 	var scene_path:String = save_data.get("scene_path", "uid://b1jkg4y8uvmy")
 	SceneManager.transition_scene(scene_path, "", Vector2.ZERO, "up")
@@ -136,3 +139,29 @@ func _on_scene_entered(scene_uid:String)->void:
 	else:
 		discovered_areas.append(scene_uid)
 	pass
+
+#region // Config functions
+
+func save_configuration()->void:
+	var config := ConfigFile.new()
+	config.set_value("Audio", "music", AudioServer.get_bus_volume_linear(2))
+	config.set_value("Audio", "sfx", AudioServer.get_bus_volume_linear(3))
+	config.set_value("Audio", "ui", AudioServer.get_bus_volume_linear(4))
+	config.save(CONFIG_FILE_PATH)
+	pass
+
+func load_configuration()->void:
+	var config := ConfigFile.new()
+	var err = config.load(CONFIG_FILE_PATH)
+	
+	if err != OK:
+		return
+	
+	AudioServer.set_bus_volume_linear(2,config.get_value("Audio", "music", 0.8))
+	AudioServer.set_bus_volume_linear(3,config.get_value("Audio", "sfx", 1.0))
+	AudioServer.set_bus_volume_linear(4,config.get_value("Audio", "ui", 1.0))
+	pass
+
+
+
+#endregion

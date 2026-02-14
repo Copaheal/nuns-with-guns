@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b1jkg4y8uvmy"]
+[gd_scene load_steps=17 format=4 uid="uid://b1jkg4y8uvmy"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_2fqq6"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="3_e2uee"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/animated_torch.tscn" id="10_e2uee"]
 [ext_resource type="Texture2D" uid="uid://7g8re4bntl1a" path="res://Assets/TileSets/light_stream.jpg" id="11_2fqq6"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="12_b1b6h"]
+[ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="12_psaqg"]
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="12_xmbpx"]
+[ext_resource type="AudioStream" uid="uid://dp6ihksf7yf5i" path="res://00_Global/Audio/music/dungeon_01.ogg" id="13_cj4ss"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="13_xmbpx"]
 
 [sub_resource type="Gradient" id="Gradient_b1b6h"]
@@ -44,6 +46,12 @@ target_level = "uid://c0wdkls6a0ec"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("13_xmbpx")]
 position = Vector2(-40, 320)
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("12_psaqg")
+track = ExtResource("13_cj4ss")
+reverb = 3
+metadata/_custom_type_script = "uid://d0gjtlikuwioc"
 
 [node name="Tilemaps" type="Node2D" parent="."]
 

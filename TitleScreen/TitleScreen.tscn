@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d2vy1o0dmf52o"]
+[gd_scene load_steps=15 format=4 uid="uid://d2vy1o0dmf52o"]
 
 [ext_resource type="Script" uid="uid://pcih7ca7kb24" path="res://TitleScreen/title_screen.gd" id="1_70hon"]
 [ext_resource type="TileSet" uid="uid://cog5j7dg10ard" path="res://resrouces/SnowyMountain.tres" id="3_mhd54"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c6h7yuclp3lg6" path="res://Assets/VariousSprites/Nun_gun_logo.png" id="7_4x3tk"]
 [ext_resource type="Texture2D" uid="uid://cayeaqbxmj4p7" path="res://Assets/Backgrounds/Snowy Mountain/background4.png" id="7_7fp5u"]
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="8_weemw"]
-[ext_resource type="AudioStream" uid="uid://bd4a1hqus2doq" path="res://Assets/music/Gallery of the Damned.mp3" id="9_j3fyg"]
+[ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="9_mhd54"]
+[ext_resource type="AudioStream" uid="uid://bd4a1hqus2doq" path="res://00_Global/Audio/music/Gallery of the Damned.mp3" id="10_j8ysg"]
 
 [sub_resource type="Animation" id="Animation_j8ysg"]
 resource_name = "Loop"
@@ -317,7 +318,7 @@ layout_mode = 2
 text = "Load Slot 03"
 icon_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource("9_j3fyg")
-autoplay = true
-bus = &"Music"
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("9_mhd54")
+track = ExtResource("10_j8ysg")
+metadata/_custom_type_script = "uid://d0gjtlikuwioc"

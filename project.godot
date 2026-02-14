@@ -25,6 +25,7 @@ SceneManager="*res://00_Global/Scene Manager/Scene_Manager.tscn"
 SaveManager="*res://00_Global/Save Manager/save_manager.gd"
 Messages="*res://00_Global/messages.gd"
 PlayerHud="*res://00_Global/PlayerHUD/player_HUD.tscn"
+Audio="*res://00_Global/Audio/audio.tscn"
 
 [display]
 
@@ -153,6 +154,7 @@ down={
 2d_physics/layer_2="1 Way Platform"
 2d_physics/layer_3="KillZone"
 2d_physics/layer_4="Player"
+2d_physics/layer_5="Door"
 
 [rendering]
 

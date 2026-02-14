@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://b16sla3kyw34m"]
+[gd_scene load_steps=13 format=4 uid="uid://b16sla3kyw34m"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_l6bd0"]
 [ext_resource type="Texture2D" uid="uid://cjnduwfrned85" path="res://Assets/Backgrounds/Snowy Mountain/background1.png" id="2_hgeb6"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="3_hlm5k"]
 [ext_resource type="Texture2D" uid="uid://dbhrv8sfgklyb" path="res://Assets/Backgrounds/Snowy Mountain/background2a.png" id="3_ryt11"]
 [ext_resource type="TileSet" uid="uid://cog5j7dg10ard" path="res://resrouces/SnowyMountain.tres" id="4_gyohb"]
+[ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="4_odxvs"]
 [ext_resource type="Texture2D" uid="uid://fttd0lnlm5uc" path="res://Assets/Backgrounds/Snowy Mountain/background3.png" id="4_yyv8l"]
 [ext_resource type="Texture2D" uid="uid://cayeaqbxmj4p7" path="res://Assets/Backgrounds/Snowy Mountain/background4.png" id="5_udr33"]
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="6_71fd7"]
@@ -38,6 +39,10 @@ target_level = "uid://dmlglxqw7jwpd"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_hlm5k")]
 position = Vector2(183, 452)
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("4_odxvs")
+metadata/_custom_type_script = "uid://d0gjtlikuwioc"
 
 [node name="SavePoint" parent="." instance=ExtResource("11_m8627")]
 position = Vector2(352, 508)
