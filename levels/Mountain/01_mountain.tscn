@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dmlglxqw7jwpd"]
+[gd_scene load_steps=22 format=4 uid="uid://dmlglxqw7jwpd"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_ha8co"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="2_mqs2b"]
@@ -28,6 +28,33 @@ seamless = true
 normalize = false
 seamless_blend_skirt = 0.5
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h7fwu"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_li10s"]
+offsets = PackedFloat32Array(0.17592593, 0.625, 1)
+colors = PackedColorArray(0.19451028, 0.19451028, 0.19451028, 1, 0.36422682, 0.36422682, 0.36422682, 0.7529412, 0.54752064, 0.54752064, 0.54752064, 0.61960787)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d5jc4"]
+gradient = SubResource("Gradient_li10s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_71eaw"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1500, 10, 1)
+initial_velocity_max = 5.0
+gravity = Vector3(-45, 60, 0)
+linear_accel_min = -20.720001
+linear_accel_max = 4.2899976
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_d5jc4")
+turbulence_enabled = true
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
 [node name="01Mountain" type="Node2D"]
 
 [node name="LevelBounds" type="Node2D" parent="."]
@@ -46,7 +73,7 @@ target_level = "uid://b16sla3kyw34m"
 target_area_name = "LevelTransition2"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_uvxrm")]
-position = Vector2(58, 91)
+position = Vector2(39, 82)
 
 [node name="MusicAutoTrigger" type="Node" parent="."]
 script = ExtResource("4_q4bs1")
@@ -54,6 +81,7 @@ track = ExtResource("5_h7fwu")
 metadata/_custom_type_script = "uid://d0gjtlikuwioc"
 
 [node name="Parallaxed Background" type="Node2D" parent="."]
+modulate = Color(0.62352943, 0.62352943, 0.62352943, 0.7019608)
 
 [node name="Parallaxed Background" type="Parallax2D" parent="Parallaxed Background"]
 z_index = -5
@@ -116,6 +144,7 @@ scale = Vector2(1.4, 1.4)
 texture = ExtResource("8_71eaw")
 
 [node name="Mountain Tilemap" type="Node2D" parent="."]
+modulate = Color(0.8530103, 0.8530103, 0.8530103, 1)
 
 [node name="MtnBackground" type="TileMapLayer" parent="Mountain Tilemap"]
 z_index = -2
@@ -155,7 +184,7 @@ position = Vector2(255, 2)
 modulate = Color(1, 1, 1, 0.6627451)
 z_index = 2
 scroll_scale = Vector2(0.8, 0.615)
-scroll_offset = Vector2(536, 1)
+scroll_offset = Vector2(-467, -37)
 repeat_size = Vector2(512, 0)
 autoscroll = Vector2(-3, 0)
 repeat_times = 2
@@ -165,3 +194,14 @@ modulate = Color(0.69119865, 0.86207265, 0.98199487, 1)
 material = ExtResource("14_h7fwu")
 position = Vector2(775, 635)
 texture = SubResource("NoiseTexture2D_li10s")
+
+[node name="Ash Snow" type="GPUParticles2D" parent="."]
+top_level = true
+material = SubResource("CanvasItemMaterial_h7fwu")
+position = Vector2(1230, 99)
+amount = 200
+lifetime = 15.0
+preprocess = 30.0
+randomness = 1.0
+visibility_rect = Rect2(-900, 0, 2000, 500)
+process_material = SubResource("ParticleProcessMaterial_71eaw")

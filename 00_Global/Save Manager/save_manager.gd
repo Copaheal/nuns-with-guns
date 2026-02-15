@@ -14,23 +14,25 @@ var persistent_data:Dictionary = {}
 
 
 func _ready() -> void:
-	SceneManager.scene_entered.connect(_on_scene_entered)
 	load_configuration()
+	SceneManager.scene_entered.connect(_on_scene_entered)
 	pass
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_F5:
-			save_game()
-		elif event.keycode == KEY_F7:
-			load_game(current_slot)
-		elif event.keycode == KEY_1:
-			current_slot = 0
-		elif event.keycode == KEY_2:
-			current_slot = 1
-		elif event.keycode == KEY_3:
-			current_slot = 2
+	#DEBUG
+	if OS.is_debug_build():
+		if event is InputEventKey and event.pressed:
+			if event.keycode == KEY_F5:
+				save_game()
+			elif event.keycode == KEY_F7:
+				load_game(current_slot)
+			elif event.keycode == KEY_1:
+				current_slot = 0
+			elif event.keycode == KEY_2:
+				current_slot = 1
+			elif event.keycode == KEY_3:
+				current_slot = 2
 	pass
 
 
@@ -155,6 +157,9 @@ func load_configuration()->void:
 	var err = config.load(CONFIG_FILE_PATH)
 	
 	if err != OK:
+		AudioServer.set_bus_volume_linear(2, 0.2)
+		AudioServer.set_bus_volume_linear(3, 1.0)
+		AudioServer.set_bus_volume_linear(4,1.0)
 		return
 	
 	AudioServer.set_bus_volume_linear(2,config.get_value("Audio", "music", 0.8))

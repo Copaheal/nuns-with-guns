@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Nuns With Guns"
-run/main_scene="uid://b1jkg4y8uvmy"
+run/main_scene="uid://d2vy1o0dmf52o"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://daum5otuq6ory"
 

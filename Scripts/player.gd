@@ -92,19 +92,20 @@ func _unhandled_input( event: InputEvent ) -> void:
 		return
 	
 	
-	#Temp code for debug
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_MINUS:
-			if Input.is_key_pressed(KEY_SHIFT):
-				max_hp -= 10
-			else:
-				hp -= 2
-		elif event.keycode == KEY_EQUAL:
-			if Input.is_key_pressed(KEY_SHIFT):
-				max_hp += 10
-			else:
-				hp += 2
-	#End temp code
+	#Temp DEBUG
+	if OS.is_debug_build():
+		if event is InputEventKey and event.pressed:
+			if event.keycode == KEY_MINUS:
+				if Input.is_key_pressed(KEY_SHIFT):
+					max_hp -= 10
+				else:
+					hp -= 2
+			elif event.keycode == KEY_EQUAL:
+				if Input.is_key_pressed(KEY_SHIFT):
+					max_hp += 10
+				else:
+					hp += 2
+	#End DEBUG
 	
 	change_state( current_state.handle_input( event ) )
 	pass 
