@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0w12d1ohepix"]
+[gd_scene load_steps=12 format=3 uid="uid://d0w12d1ohepix"]
 
 [ext_resource type="Script" uid="uid://d4n2bu8ebj3b6" path="res://00_Global/PlayerHUD/player_hud.gd" id="1_k7ycf"]
 [ext_resource type="Texture2D" uid="uid://bmquxvgn33ldi" path="res://00_Global/PlayerHUD/health_bar_frame.png" id="1_xppej"]
+[ext_resource type="Script" uid="uid://cs4h5qf0jc0aj" path="res://00_Global/VisualEffects/hit_particle_settings.gd" id="3_6pm68"]
+[ext_resource type="Texture2D" uid="uid://bivtocuy0ko6h" path="res://Assets/VariousSprites/props_destructible.png" id="4_rhu7w"]
 
 [sub_resource type="Gradient" id="Gradient_k7ycf"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -15,6 +17,34 @@ colors = PackedColorArray(0.8627451, 0.34117648, 0.34117648, 1, 0.9412629, 0.582
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gpjmj"]
 gradient = SubResource("Gradient_rhu7w")
+
+[sub_resource type="GDScript" id="GDScript_k7ycf"]
+script/source = "extends Button
+
+@export var particle_settings:HitParticleSettings
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pressed.connect(_on_pressed)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_pressed() -> void:
+	var pos:Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
+	VisualEffects.hit_particles(pos, Vector2(1,0), particle_settings)
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpjmj"]
+atlas = ExtResource("4_rhu7w")
+region = Rect2(111, 6, 8, 11)
+
+[sub_resource type="Resource" id="Resource_rhu7w"]
+script = ExtResource("3_6pm68")
+count = 200
+color = Color(1, 0, 0, 1)
+texture = SubResource("AtlasTexture_gpjmj")
+metadata/_custom_type_script = "uid://cs4h5qf0jc0aj"
 
 [node name="PlayerHud" type="CanvasLayer"]
 process_mode = 3
@@ -65,3 +95,13 @@ rounded = true
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_6pm68")
 texture_progress = SubResource("GradientTexture2D_gpjmj")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 13.0
+offset_right = 944.0
+offset_bottom = 36.0
+text = "Test Particle"
+script = SubResource("GDScript_k7ycf")
+particle_settings = SubResource("Resource_rhu7w")

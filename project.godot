@@ -26,6 +26,7 @@ SaveManager="*res://00_Global/Save Manager/save_manager.gd"
 Messages="*res://00_Global/messages.gd"
 PlayerHud="*res://00_Global/PlayerHUD/player_HUD.tscn"
 Audio="*res://00_Global/Audio/audio.tscn"
+VisualEffects="*res://00_Global/VisualEffects/visual_effects.gd"
 
 [display]
 

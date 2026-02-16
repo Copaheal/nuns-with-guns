@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ddyfrooekrk0h"]
+[gd_scene load_steps=36 format=3 uid="uid://ddyfrooekrk0h"]
 
 [ext_resource type="Script" uid="uid://5g8jm46upk0r" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cvuyu5yfyogts" path="res://Assets/Character/_Idle.png" id="1_v0iea"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://eti2ik3wfcw1" path="res://Scripts/States/idle.gd" id="11_pu2lt"]
 [ext_resource type="Script" uid="uid://cpv2o0cfvloa4" path="res://Scripts/States/run.gd" id="12_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cc8k7dsjfcgnb" path="res://Assets/Character/_JumpFallInbetween.png" id="13_h4iuc"]
+[ext_resource type="Script" uid="uid://cgm68sfx0gcch" path="res://Scripts/player_camera.gd" id="16_igrcy"]
 [ext_resource type="Script" uid="uid://nway8v36nb0m" path="res://Scripts/input_hints.gd" id="16_qqcod"]
 [ext_resource type="Texture2D" uid="uid://cireumdvxchy7" path="res://Assets/VariousSprites/icons-keyboard-16x16-1bit-ansdor2.png" id="17_qqcod"]
 
@@ -655,13 +656,14 @@ target_position = Vector2(0, 0)
 max_results = 12
 collision_mask = 2
 
-[node name="Camera2D2" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
 process_mode = 3
 zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = -400
 limit_right = 2500
 limit_bottom = 700
+script = ExtResource("16_igrcy")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 z_index = 9

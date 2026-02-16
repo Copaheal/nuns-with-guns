@@ -9,6 +9,10 @@ enum REVERB_TYPE {NONE, SMALL, MEDIUM, LARGE}
 @export var ui_success_audio:AudioStream
 @export var ui_error_audio:AudioStream
 
+@export var sfx_land_audio:AudioStream
+@export var sfx_jump_audio:AudioStream
+@export var sfx_hit_audio:AudioStream
+
 var current_track:int = 0
 var music_tweens:Array[Tween]
 var ui_audio_player:AudioStreamPlaybackPolyphonic
@@ -22,7 +26,6 @@ func _ready() -> void:
 	ui.play()
 	ui_audio_player = ui.get_stream_playback()
 	pass
-
 
 
 func play_music(audio:AudioStream)->void:
@@ -98,6 +101,7 @@ func play_ui_audio(audio:AudioStream)->void:
 	if ui_audio_player:
 		ui_audio_player.play_stream(audio)
 	pass
+
 
 func setup_button_audio(node:Node)->void:
 	for c in node.find_children("*", "Button"):

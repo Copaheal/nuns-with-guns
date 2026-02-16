@@ -15,6 +15,8 @@ func init() -> void:
 
 #what happens when we enter State.
 func enter() -> void:
+	VisualEffects.jump_dust(player.global_position)
+	Audio.play_spatial_sound(Audio.sfx_jump_audio,player.global_position)
 	player.anim_player.play("Jump")
 	player.anim_player.pause()
 	player.velocity.y = -jump_velocity
