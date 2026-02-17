@@ -72,6 +72,14 @@ size = 4
 target_level = "uid://b16sla3kyw34m"
 target_area_name = "LevelTransition2"
 
+[node name="LevelTransition2" parent="." instance=ExtResource("2_mqs2b")]
+z_index = 256
+position = Vector2(2787, 405)
+size = 4
+location = 1
+target_level = "uid://b16sla3kyw34m"
+target_area_name = "LevelTransition2"
+
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_uvxrm")]
 position = Vector2(39, 82)
 
