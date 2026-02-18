@@ -37,8 +37,9 @@ func exit() -> void:
 
 #What happens when an input is pressed/released
 func handle_input(event:InputEvent) -> PlayerState:
+	if event.is_action_pressed("attack"):
+		return attack
 	if event.is_action_released( "jump" ):
-		player.velocity.y = decelerate_on_jump_release
 		return fall
 	return next_state
 

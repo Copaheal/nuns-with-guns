@@ -9,6 +9,10 @@ class_name Player extends CharacterBody2D
 @onready var platform_shapec: ShapeCast2D = $PlatformShapeCast
 @onready var crouch_rayc1: RayCast2D = $CrouchRaycast1
 @onready var crouch_rayc2: RayCast2D = $CrouchRaycast2
+@onready var attack_area: AttackArea = %AttackArea
+@onready var attack_sprite: Sprite2D = %AttackSprite2D
+
+
 
 #endregion
 
@@ -83,6 +87,8 @@ func _ready() -> void:
 	pass
 
 func _unhandled_input( event: InputEvent ) -> void:
+	if event.is_action_released("jump"):
+		velocity.y *= 0.5
 	if event.is_action_pressed("action"):
 		Messages.player_interacted.emit(self)
 	elif event.is_action_pressed("pause"):
@@ -172,12 +178,17 @@ func update_direction() -> void:
 	direction = Vector2(x_axis, y_axis)
 	
 	if prev_direction.x != direction.x:
-		if direction.x <0:
+		attack_area.flip(direction.x)
+		if direction.x <0: #LEFT
 			sprite.flip_h = true
 			sprite.position.x = -5
-		elif direction.x > 0:
+			attack_sprite.flip_h = true
+			attack_sprite.position.x = -24
+		elif direction.x > 0: #RIGHT
 			sprite.flip_h = false
 			sprite.position.x = 5
+			attack_sprite.flip_h = false
+			attack_sprite.position.x = 24
 	pass
 
 #Ability Logic

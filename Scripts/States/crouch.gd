@@ -31,6 +31,8 @@ func exit() -> void:
 
 #What happens when an input is pressed/released
 func handle_input(_event:InputEvent) -> PlayerState:
+	if _event.is_action_pressed("attack"):
+		return attack
 	if _event.is_action_pressed("jump"):
 		player.platform_shapec.force_shapecast_update()
 		if player.platform_shapec.is_colliding():
