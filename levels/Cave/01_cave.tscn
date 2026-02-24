@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dp6ihksf7yf5i" path="res://00_Global/Audio/music/dungeon_01.ogg" id="5_pkdfy"]
 [ext_resource type="Texture2D" uid="uid://3d0u3d6iha0s" path="res://Assets/Backgrounds/Cave/background4a.png" id="6_4plfl"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="7_w13j7"]
-[ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/animated_torch.tscn" id="8_cx7vd"]
+[ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/Props/animated_torch.tscn" id="8_cx7vd"]
 [ext_resource type="Texture2D" uid="uid://7g8re4bntl1a" path="res://Assets/TileSets/light_stream.jpg" id="9_fjq3x"]
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="10_dhqh8"]
 

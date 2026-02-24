@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://icrf5hpopnnr" path="res://Assets/Backgrounds/Cave/background2.png" id="7_xpnnf"]
 [ext_resource type="Texture2D" uid="uid://b15djphrc7c6x" path="res://Assets/Backgrounds/Cave/background3.png" id="8_hjmle"]
 [ext_resource type="Texture2D" uid="uid://3d0u3d6iha0s" path="res://Assets/Backgrounds/Cave/background4a.png" id="9_lsaem"]
-[ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/animated_torch.tscn" id="10_e2uee"]
+[ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/Props/animated_torch.tscn" id="10_e2uee"]
 [ext_resource type="Texture2D" uid="uid://7g8re4bntl1a" path="res://Assets/TileSets/light_stream.jpg" id="11_2fqq6"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="12_b1b6h"]
 [ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="12_psaqg"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxfshplx0rs1t"]
 
-[ext_resource type="PackedScene" uid="uid://c3ger6v0xdh5" path="res://Scenes/save_statue.tscn" id="1_2bpkj"]
+[ext_resource type="PackedScene" uid="uid://c3ger6v0xdh5" path="res://Scenes/Props/save_statue.tscn" id="1_2bpkj"]
 [ext_resource type="Script" uid="uid://bt4dn23puvmlu" path="res://Scripts/save_point.gd" id="1_uo8vs"]
 [ext_resource type="FontFile" uid="uid://b6t17f2grvsat" path="res://Assets/fonts/alagard.ttf" id="2_qilv1"]
 
