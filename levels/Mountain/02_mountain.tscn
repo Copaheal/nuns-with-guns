@@ -33,7 +33,7 @@ z_index = 256
 position = Vector2(472, 304)
 size = 4
 location = 1
-target_level = "uid://c41jmhpxo1ocw"
+target_level = "uid://8t018agna7bu"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_kkdes")]
 position = Vector2(12, 300)

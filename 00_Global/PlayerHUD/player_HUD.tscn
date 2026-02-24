@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0w12d1ohepix"]
+[gd_scene load_steps=8 format=3 uid="uid://d0w12d1ohepix"]
 
 [ext_resource type="Script" uid="uid://d4n2bu8ebj3b6" path="res://00_Global/PlayerHUD/player_hud.gd" id="1_k7ycf"]
 [ext_resource type="Texture2D" uid="uid://bmquxvgn33ldi" path="res://00_Global/PlayerHUD/health_bar_frame.png" id="1_xppej"]
-[ext_resource type="Resource" uid="uid://or36xkaokqsc" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_large.tres" id="3_6pm68"]
 
 [sub_resource type="Gradient" id="Gradient_k7ycf"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -16,23 +15,6 @@ colors = PackedColorArray(0.8627451, 0.34117648, 0.34117648, 1, 0.9412629, 0.582
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gpjmj"]
 gradient = SubResource("Gradient_rhu7w")
-
-[sub_resource type="GDScript" id="GDScript_k7ycf"]
-script/source = "extends Button
-
-@export var particle_settings:HitParticleSettings
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pressed.connect(_on_pressed)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _on_pressed() -> void:
-	var pos:Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
-	VisualEffects.hit_particles(pos, Vector2(0 ,-1), particle_settings)
-	pass
-"
 
 [sub_resource type="GDScript" id="GDScript_6pm68"]
 script/source = "extends Button
@@ -99,21 +81,11 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_6pm68")
 texture_progress = SubResource("GradientTexture2D_gpjmj")
 
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 843.0
-offset_top = 13.0
-offset_right = 944.0
-offset_bottom = 36.0
-text = "Test Particle"
-script = SubResource("GDScript_k7ycf")
-particle_settings = ExtResource("3_6pm68")
-
 [node name="Button2" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 837.0
-offset_top = 44.0
-offset_right = 944.0
-offset_bottom = 67.0
+offset_left = 839.0
+offset_top = 15.0
+offset_right = 946.0
+offset_bottom = 38.0
 text = "screen Shake"
 script = SubResource("GDScript_6pm68")
