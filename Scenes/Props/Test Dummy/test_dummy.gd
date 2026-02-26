@@ -3,6 +3,7 @@ extends Node2D
 @export var particles:Array[ HitParticleSettings ]
 @export var base_wobble_angle:float = 4
 @export var wobble_speed:float = 0.1
+@export var hit_audio:AudioStream = preload("uid://b116mt3dtab8s")
 
 var wobble_count:int = 0
 var tween:Tween
@@ -25,6 +26,7 @@ func _on_damage_taken(attack_area:AttackArea)->void:
 		VisualEffects.hit_particles(pos, Vector2(dir,0), p)
 	wobble_count = 5
 	wobble(dir)
+	Audio.play_spatial_sound(hit_audio, pos)
 	pass
 
 func wobble(dir:float)->void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dmlglxqw7jwpd"]
+[gd_scene load_steps=24 format=4 uid="uid://dmlglxqw7jwpd"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_ha8co"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="2_mqs2b"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dngi5p6xj5anr" path="res://DoorandSwitch/switch.tscn" id="11_uvxrm"]
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="14_h7fwu"]
 [ext_resource type="PackedScene" uid="uid://b3rn8mi671te3" path="res://Scenes/Props/Test Dummy/test_dummy.tscn" id="15_li10s"]
+[ext_resource type="AudioStream" uid="uid://cwe3kr24it6ic" path="res://00_Global/Audio/Player Audio/death.wav" id="16_71eaw"]
 
 [sub_resource type="Gradient" id="Gradient_2fqq6"]
 colors = PackedColorArray(0.7989663, 0.9091569, 0.9955722, 0, 1, 1, 1, 1)
@@ -219,16 +220,21 @@ process_material = SubResource("ParticleProcessMaterial_71eaw")
 [node name="TestDummy" parent="Props" instance=ExtResource("15_li10s")]
 position = Vector2(120, 399)
 scale = Vector2(-1, 1)
+hit_audio = ExtResource("16_71eaw")
 
 [node name="TestDummy2" parent="Props" instance=ExtResource("15_li10s")]
 position = Vector2(280, 607)
+hit_audio = ExtResource("16_71eaw")
 
 [node name="TestDummy3" parent="Props" instance=ExtResource("15_li10s")]
 position = Vector2(989, 591)
+hit_audio = ExtResource("16_71eaw")
 
 [node name="TestDummy4" parent="Props" instance=ExtResource("15_li10s")]
 position = Vector2(896, 191)
+hit_audio = ExtResource("16_71eaw")
 
 [node name="TestDummy5" parent="Props" instance=ExtResource("15_li10s")]
 position = Vector2(1070, 222)
 scale = Vector2(-1, 1)
+hit_audio = ExtResource("16_71eaw")
