@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c41jmhpxo1ocw"]
+[gd_scene load_steps=12 format=4 uid="uid://c41jmhpxo1ocw"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_67f68"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="2_2ran0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dbhrv8sfgklyb" path="res://Assets/Backgrounds/Snowy Mountain/background2a.png" id="8_igi1x"]
 [ext_resource type="Texture2D" uid="uid://fttd0lnlm5uc" path="res://Assets/Backgrounds/Snowy Mountain/background3.png" id="9_br5w8"]
 [ext_resource type="Texture2D" uid="uid://cayeaqbxmj4p7" path="res://Assets/Backgrounds/Snowy Mountain/background4.png" id="10_2t15k"]
+[ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/Props/animated_torch.tscn" id="11_5fccr"]
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="11_kpe74"]
 
 [node name="02_mountain" type="Node2D"]
@@ -51,6 +52,7 @@ tile_set = ExtResource("6_2ran0")
 
 [node name="BackgroundProps" type="TileMapLayer" parent="Tilemaps"]
 z_index = -1
+tile_map_data = PackedByteArray("AAAEAAcAAAAOABcAAAAFAAcAAAAPABcAAAAGAAcAAAAQABcAAAAOAAcAAgAwABEAAAAPAAcAAgAxABEAAAAQAAcAAgAyABEAAAANAAcAAAAOABcAAAARAAcAAgAzABEAAAASAAcAAAAfABcAAAAYAAcAAAAPABcAAAAZAAcAAAAQABcAAAAaAAcAAAAfABcAAAAXAAcAAAAOABcAAAAOAAUAAgAwAA8AAAAOAAYAAgAwABAAAAAPAAUAAgAxAA8AAAAPAAYAAgAxABAAAAAQAAUAAgAyAA8AAAAQAAYAAgAyABAAAAARAAUAAgAzAA8AAAARAAYAAgAzABAAAAAEAA8AAAAhACQAAAAEABAAAAAhACUAAAAFAA8AAAAiACQAAAAFABAAAAAiACUAAAAGAA8AAAAjACQAAAAGABAAAAAjACUAAAAZAA8AAAAkACEAAAAZABAAAAAkACIAAAAaAA8AAAAlACEAAAAaABAAAAAlACIAAAAWAA4AAAAhACIAAAAWAA8AAAAhACMAAAAXAA4AAAAiACIAAAAXAA8AAAAiACMAAAA=")
 tile_set = ExtResource("6_2ran0")
 
 [node name="Midground" type="TileMapLayer" parent="Tilemaps"]
@@ -63,6 +65,7 @@ tile_set = ExtResource("6_2ran0")
 
 [node name="Foreground" type="TileMapLayer" parent="Tilemaps"]
 z_index = 3
+tile_map_data = PackedByteArray("AAAQABIAAAAhACQAAAAQABMAAAAhACUAAAARABIAAAAiACQAAAARABMAAAAiACUAAAASABIAAAAjACQAAAASABMAAAAjACUAAAAOABIAAAAhACIAAAAOABMAAAAhACMAAAAPABIAAAAiACIAAAAPABMAAAAiACMAAAADAAYAAgAwAA8AAAADAAcAAgAwABAAAAADAAgAAgAwABEAAAAEAAYAAgAxAA8AAAAEAAcAAgAxABAAAAAEAAgAAgAxABEAAAAFAAYAAgAyAA8AAAAFAAcAAgAyABAAAAAFAAgAAgAyABEAAAAGAAYAAgAzAA8AAAAGAAcAAgAzABAAAAAGAAgAAgAzABEAAAAQAAcAAAAdABcAAAARAAcAAAAeABcAAAASAAcAAAAfABcAAAA=")
 tile_set = ExtResource("6_2ran0")
 
 [node name="Parallaxed Background" type="Node2D" parent="."]
@@ -134,3 +137,11 @@ texture = ExtResource("11_kpe74")
 color = Color(0.76862746, 0.87058824, 0.89411765, 1)
 energy = 1.4
 blend_mode = 2
+
+[node name="Props" type="Node" parent="."]
+
+[node name="AnimatedTorch" parent="Props" instance=ExtResource("11_5fccr")]
+position = Vector2(155, 249)
+
+[node name="AnimatedTorch2" parent="Props" instance=ExtResource("11_5fccr")]
+position = Vector2(325, 249)
