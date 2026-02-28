@@ -1,15 +1,24 @@
 class_name Player extends CharacterBody2D
 
+#region // signals
+
+signal damage_taken
+
+#endregion
+
 #region // @onready variables
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+@onready var dastand: CollisionShape2D = %DAStand
+@onready var dacrouch: CollisionShape2D = %DACrouch
 @onready var platform_shapec: ShapeCast2D = $PlatformShapeCast
 @onready var crouch_rayc1: RayCast2D = $CrouchRaycast1
 @onready var crouch_rayc2: RayCast2D = $CrouchRaycast2
 @onready var attack_area: AttackArea = %AttackArea
+@onready var damage_area: DamageArea = %DamageArea
 @onready var attack_sprite: Sprite2D = %AttackSprite2D
 
 
@@ -46,7 +55,7 @@ var hp:float = 20 :
 		hp = clampf(value, 0, max_hp)
 		Messages.player_health_changed.emit(hp,max_hp)
 		
-var max_hp:float = 20 :
+var max_hp:float = 10 :
 	set(value):
 		max_hp = value
 		Messages.player_health_changed.emit(hp,max_hp)
@@ -84,6 +93,8 @@ func _ready() -> void:
 	self.call_deferred("reparent", get_tree().root)
 	Messages.player_healed.connect(on_player_healed)
 	Messages.back_to_title_screen.connect(queue_free)
+	damage_area.damage_taken.connect(_on_damage_taken)
+	hp = max_hp
 	pass
 
 func _unhandled_input( event: InputEvent ) -> void:
@@ -218,6 +229,10 @@ func update_direction() -> void:
 func on_player_healed(amount:float)->void:
 	hp += amount
 	print("Player healed for: ", amount)
-	
 	#audio/visual
+	pass
+
+func _on_damage_taken(attack_area:AttackArea)->void:
+	hp -= attack_area.damage
+	damage_taken.emit()
 	pass

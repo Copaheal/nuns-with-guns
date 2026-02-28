@@ -12,6 +12,7 @@ enum REVERB_TYPE {NONE, SMALL, MEDIUM, LARGE}
 @export var sfx_land_audio:AudioStream
 @export var sfx_jump_audio:AudioStream
 @export var sfx_hit_audio:AudioStream
+@export var sfx_death_audio:AudioStream
 
 var current_track:int = 0
 var music_tweens:Array[Tween]

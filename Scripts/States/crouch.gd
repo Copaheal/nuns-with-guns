@@ -19,6 +19,8 @@ func enter() -> void:
 	player.collision_stand.disabled = true
 	player.collision_crouch.disabled = false
 	player.collision_crouch.position.y = -13
+	player.dastand.disabled = true
+	player.dacrouch.disabled = false
 	pass
 
 
@@ -26,6 +28,8 @@ func enter() -> void:
 func exit() -> void:
 	player.collision_stand.disabled = false
 	player.collision_crouch.disabled = true
+	player.dastand.disabled = false
+	player.dacrouch.disabled = true
 	pass
 
 
