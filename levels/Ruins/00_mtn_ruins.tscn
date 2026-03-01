@@ -47,6 +47,7 @@ position = Vector2(1112, 957)
 size = 4
 location = 1
 target_level = "uid://c41jmhpxo1ocw"
+mapvisible = false
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_85ym4")]
 position = Vector2(12, 300)
