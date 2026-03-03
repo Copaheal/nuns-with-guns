@@ -55,7 +55,7 @@ var hp:float = 20 :
 		hp = clampf(value, 0, max_hp)
 		Messages.player_health_changed.emit(hp,max_hp)
 		
-var max_hp:float = 10 :
+var max_hp:float = 20 :
 	set(value):
 		max_hp = value
 		Messages.player_health_changed.emit(hp,max_hp)
@@ -188,18 +188,19 @@ func update_direction() -> void:
 	var y_axis = Input.get_axis("jump", "crouch")
 	direction = Vector2(x_axis, y_axis)
 	
-	if prev_direction.x != direction.x:
-		attack_area.flip(direction.x)
-		if direction.x <0: #LEFT
-			sprite.flip_h = true
-			sprite.position.x = -5
-			attack_sprite.flip_h = true
-			attack_sprite.position.x = -24
-		elif direction.x > 0: #RIGHT
-			sprite.flip_h = false
-			sprite.position.x = 5
-			attack_sprite.flip_h = false
-			attack_sprite.position.x = 24
+	if current_state != PlayerStateDeath:
+		if prev_direction.x != direction.x:
+			attack_area.flip(direction.x)
+			if direction.x <0: #LEFT
+				sprite.flip_h = true
+				sprite.position.x = -5
+				attack_sprite.flip_h = true
+				attack_sprite.position.x = -24
+			elif direction.x > 0: #RIGHT
+				sprite.flip_h = false
+				sprite.position.x = 5
+				attack_sprite.flip_h = false
+				attack_sprite.position.x = 24
 	pass
 
 #Ability Logic
@@ -233,6 +234,8 @@ func on_player_healed(amount:float)->void:
 	pass
 
 func _on_damage_taken(attack_area:AttackArea)->void:
+	if current_state == PlayerStateDeath:
+		return
 	hp -= attack_area.damage
 	damage_taken.emit()
 	pass

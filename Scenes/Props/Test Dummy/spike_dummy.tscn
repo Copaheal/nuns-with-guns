@@ -39,6 +39,7 @@ position = Vector2(0, -18)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("6_n4oqi")
+damage = 10.0
 metadata/_custom_type_script = "uid://b6l1p1druxuvd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodySprite/HazardArea"]

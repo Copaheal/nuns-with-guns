@@ -11,20 +11,19 @@ func _ready() -> void:
 	
 	if  Engine.is_editor_hint():
 		return
-	
+	#check for and get ref to camera
 	var camera : Camera2D = null
-	
+
 	while not camera:
 		await  get_tree().process_frame
 		camera = get_viewport().get_camera_2d()
-		
+
+	#update camera limits
 	camera.limit_left = int(global_position.x)
 	camera.limit_top = int(global_position.y)
 	camera.limit_right = int(global_position.x) + width
 	camera.limit_bottom = int(global_position.y) + height
-	#check for and get ref to camera
-	
-	#update camera limits
+
 	pass
 
 func _draw() -> void:

@@ -12,7 +12,7 @@
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="7_i8m8l"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="8_66t2u"]
 [ext_resource type="PackedScene" uid="uid://bxfshplx0rs1t" path="res://Scenes/save_point.tscn" id="11_m8627"]
-[ext_resource type="PackedScene" uid="uid://ditppgppy8kti" path="res://Scenes/Props/crate_wood.tscn" id="13_ld0h3"]
+[ext_resource type="PackedScene" uid="uid://bf2y2b3e6sxek" path="res://Scenes/Props/Test Dummy/spike_dummy.tscn" id="13_ld0h3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_odxvs"]
 light_mode = 1
@@ -60,7 +60,7 @@ target_area_name = "LevelTransition2"
 
 [node name="LevelTransition2" parent="." instance=ExtResource("8_66t2u")]
 z_index = 256
-position = Vector2(512, 491)
+position = Vector2(512, 494)
 size = 4
 location = 1
 target_level = "uid://dmlglxqw7jwpd"
@@ -191,5 +191,7 @@ preprocess = 30.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_gymdk")
 
-[node name="Breakable" parent="." instance=ExtResource("13_ld0h3")]
-position = Vector2(426, 493)
+[node name="Props" type="Node" parent="."]
+
+[node name="TestDummy" parent="Props" instance=ExtResource("13_ld0h3")]
+position = Vector2(425, 512)

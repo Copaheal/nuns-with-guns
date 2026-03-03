@@ -27,15 +27,18 @@ func transition_scene(new_scene:String, target_area:String, player_offset:Vector
 	load_scene_started.emit()
 	
 	await fade_screen(fade_pos, Vector2.ZERO)
+	
 	get_tree().change_scene_to_file(new_scene)
 	current_scene_uid = ResourceUID.path_to_uid(new_scene)
 	scene_entered.emit(current_scene_uid)
 	
 	await get_tree().scene_changed
+	
 	new_scene_ready.emit(target_area, player_offset)
 	
 	await get_tree().process_frame
 	await fade_screen(Vector2.ZERO, -fade_pos)
+	
 	fade.visible = false
 	get_tree().paused = false
 	load_scene_finished.emit()
