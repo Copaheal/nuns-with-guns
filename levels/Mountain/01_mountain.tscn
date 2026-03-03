@@ -81,7 +81,7 @@ location = 1
 target_level = "uid://c41jmhpxo1ocw"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_uvxrm")]
-position = Vector2(39, 82)
+position = Vector2(56, 122)
 
 [node name="MusicAutoTrigger" type="Node" parent="."]
 script = ExtResource("4_q4bs1")

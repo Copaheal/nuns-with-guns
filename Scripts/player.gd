@@ -188,7 +188,7 @@ func update_direction() -> void:
 	var y_axis = Input.get_axis("jump", "crouch")
 	direction = Vector2(x_axis, y_axis)
 	
-	if current_state != PlayerStateDeath:
+	if current_state.name != "Death":
 		if prev_direction.x != direction.x:
 			attack_area.flip(direction.x)
 			if direction.x <0: #LEFT
