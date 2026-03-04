@@ -9,8 +9,6 @@ enum REVERB_TYPE {NONE, SMALL, MEDIUM, LARGE}
 @export var ui_success_audio:AudioStream
 @export var ui_error_audio:AudioStream
 
-@export var sfx_land_audio:AudioStream
-@export var sfx_jump_audio:AudioStream
 @export var sfx_hit_audio:AudioStream
 
 var current_track:int = 0

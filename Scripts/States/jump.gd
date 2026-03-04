@@ -5,6 +5,8 @@ class_name PlayerStateJump extends PlayerState
 @export var jump_velocity:float = 450
 @export_range(0,1) var decelerate_on_jump_release = 0.5
 
+@onready var jump_audio: AudioStreamPlayer2D = %JumpAudio
+
 #endregion
 
 
@@ -15,11 +17,14 @@ func init() -> void:
 
 #what happens when we enter State.
 func enter() -> void:
-	VisualEffects.jump_dust(player.global_position)
-	Audio.play_spatial_sound(Audio.sfx_jump_audio,player.global_position)
+	if player.is_on_floor():
+		VisualEffects.jump_dust(player.global_position)
+	else:
+		VisualEffects.hit_dust(player.global_position)
 	player.anim_player.play("Jump")
 	player.anim_player.pause()
-	player.velocity.y = -jump_velocity
+	
+	do_jump()
 	
 	#check if buffer jump
 	if player.previous_state == fall and not Input.is_action_pressed("jump"):
@@ -58,6 +63,18 @@ func physics_process(_delta:float) -> PlayerState:
 		return fall
 	player.velocity.x = player.direction.x * player.walk_speed
 	return next_state
+
+func do_jump()->void:
+	if player.jump_count > 0:
+		if player.double_jump == false:
+			return
+		elif player.jump_count > 1:
+			return
+	player.jump_count += 1
+	player.velocity.y = -jump_velocity
+	jump_audio.play()
+	pass
+
 
 func set_jump_frame() -> void:
 	var frame:float = remap(player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5)

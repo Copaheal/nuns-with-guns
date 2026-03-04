@@ -185,7 +185,7 @@ position = Vector2(229, 242)
 z_index = 2
 position = Vector2(568, 189)
 
-[node name="Switch" parent="Door2" instance=ExtResource("11_uvxrm")]
+[node name="Switch2" parent="Door2" instance=ExtResource("11_uvxrm")]
 position = Vector2(255, 2)
 
 [node name="Fog Parallax" type="Parallax2D" parent="."]
@@ -207,7 +207,7 @@ texture = SubResource("NoiseTexture2D_li10s")
 top_level = true
 material = SubResource("CanvasItemMaterial_h7fwu")
 position = Vector2(1230, 99)
-amount = 200
+amount = 800
 lifetime = 15.0
 preprocess = 30.0
 randomness = 1.0

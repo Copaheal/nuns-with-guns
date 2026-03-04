@@ -7,8 +7,8 @@ func init() -> void:
 
 #what happens when we enter State.
 func enter() -> void:
-	#play animation
 	player.anim_player.play("Idle")
+	player.jump_count = 0
 	pass
 
 

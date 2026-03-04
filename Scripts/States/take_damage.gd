@@ -6,7 +6,8 @@ class_name PlayerStateTakeDamage extends PlayerState
 var time:float = 0.0
 var dir:float = 1.0
 @onready var damage_area: DamageArea = %DamageArea
-@onready var hurt_audio: AudioStreamPlayer2D = $"../../HurtAudio"
+@onready var hurt_audio: AudioStreamPlayer2D = %HurtAudio
+
 
 
 

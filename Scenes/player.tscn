@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ddyfrooekrk0h"]
+[gd_scene load_steps=55 format=3 uid="uid://ddyfrooekrk0h"]
 
 [ext_resource type="Script" uid="uid://5g8jm46upk0r" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cvuyu5yfyogts" path="res://Assets/Character/_Idle.png" id="1_v0iea"]
@@ -29,10 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://day7mqfrsgrfb" path="res://Assets/Character/_DeathNoMovement.png" id="23_ypfnu"]
 [ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/damage_area.gd" id="24_2ijsl"]
 [ext_resource type="AudioStream" uid="uid://dgwcwh5k00ie8" path="res://00_Global/Audio/Player Audio/aargh.wav" id="27_vfarp"]
+[ext_resource type="AudioStream" uid="uid://cq4rsq35u3seb" path="res://00_Global/Audio/Player Audio/jump.wav" id="30_xuaoq"]
+[ext_resource type="AudioStream" uid="uid://dum2mbcs0131y" path="res://00_Global/Audio/Player Audio/land.wav" id="31_wohnl"]
 
 [sub_resource type="Curve" id="Curve_cvnsp"]
 _data = [Vector2(0.032608703, 1), 0.0, 0.0, 0, 0, Vector2(0.9782609, 0.49438208), -1.7917597, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_83xs0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dp3o"]
 radius = 8.0
@@ -770,7 +774,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
 
 [sub_resource type="Gradient" id="Gradient_h4iuc"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.32692307, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.839433, 0.839433, 0.839433, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fd4e3"]
 gradient = SubResource("Gradient_h4iuc")
@@ -829,6 +834,7 @@ unique_name_in_owner = true
 script = ExtResource("9_83xs0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_83xs0")
 position = Vector2(5, -40)
 texture = ExtResource("1_v0iea")
 hframes = 10
@@ -856,16 +862,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_fd4e3")
 }
 autoplay = "Idle"
-
-[node name="CrouchRaycast1" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-6, -16)
-target_position = Vector2(0, -25)
-
-[node name="CrouchRaycast2" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(6, -16)
-target_position = Vector2(0, -25)
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -948,5 +944,20 @@ visible = false
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_h4iuc")
 
-[node name="HurtAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="Audio" type="Node2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
 stream = ExtResource("27_vfarp")
+bus = &"SFX"
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("30_xuaoq")
+bus = &"SFX"
+
+[node name="LandAudio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("31_wohnl")
+bus = &"SFX"

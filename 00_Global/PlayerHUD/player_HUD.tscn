@@ -27,8 +27,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_pressed() -> void:
-	#VisualEffects.camera_shake(10)
-	PlayerHud.show_game_over()
+	var player:Player = get_tree().get_first_node_in_group(\"Player\")
+	player.double_jump = !player.double_jump
 	pass
 "
 
@@ -83,13 +83,12 @@ texture_under = SubResource("GradientTexture2D_6pm68")
 texture_progress = SubResource("GradientTexture2D_gpjmj")
 
 [node name="Button2" type="Button" parent="Control"]
-visible = false
 layout_mode = 0
-offset_left = 829.0
-offset_top = 13.0
-offset_right = 950.0
-offset_bottom = 36.0
-text = "Test Game Over
+offset_left = 791.0
+offset_top = 14.0
+offset_right = 944.0
+offset_bottom = 37.0
+text = "Toggle Double Jump
 "
 script = SubResource("GDScript_6pm68")
 

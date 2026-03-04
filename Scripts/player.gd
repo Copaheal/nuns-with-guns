@@ -15,8 +15,6 @@ signal damage_taken
 @onready var dastand: CollisionShape2D = %DAStand
 @onready var dacrouch: CollisionShape2D = %DACrouch
 @onready var platform_shapec: ShapeCast2D = $PlatformShapeCast
-@onready var crouch_rayc1: RayCast2D = $CrouchRaycast1
-@onready var crouch_rayc2: RayCast2D = $CrouchRaycast2
 @onready var attack_area: AttackArea = %AttackArea
 @onready var damage_area: DamageArea = %DamageArea
 @onready var attack_sprite: Sprite2D = %AttackSprite2D
@@ -61,7 +59,8 @@ var max_hp:float = 20 :
 		Messages.player_health_changed.emit(hp,max_hp)
 		
 var dash:bool = false
-var double_jump:bool = false
+var double_jump:bool = true
+var jump_count:int = 0
 var ground_slam:bool = false
 var slide:bool = false
 
