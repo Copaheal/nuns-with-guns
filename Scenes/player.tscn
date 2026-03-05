@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ddyfrooekrk0h"]
+[gd_scene load_steps=60 format=3 uid="uid://ddyfrooekrk0h"]
 
 [ext_resource type="Script" uid="uid://5g8jm46upk0r" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cvuyu5yfyogts" path="res://Assets/Character/_Idle.png" id="1_v0iea"]
@@ -17,7 +17,10 @@
 [ext_resource type="Script" uid="uid://d1am8yehbsgnk" path="res://Scripts/States/death.gd" id="9_83xs0"]
 [ext_resource type="Texture2D" uid="uid://ckstp4ey4whhw" path="res://Assets/Character/_CrouchWalk.png" id="9_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://vqvu634i6qix" path="res://Assets/Character/_AttackComboNoMovement.png" id="10_bi64h"]
+[ext_resource type="Script" uid="uid://br7pcwbb207ef" path="res://Scripts/States/dash.gd" id="10_wohnl"]
+[ext_resource type="Script" uid="uid://q5tioad7u17t" path="res://Scripts/States/slide.gd" id="11_nv4vc"]
 [ext_resource type="Script" uid="uid://eti2ik3wfcw1" path="res://Scripts/States/idle.gd" id="11_pu2lt"]
+[ext_resource type="Script" uid="uid://d0305y83y1pd1" path="res://Scripts/player_sprite.gd" id="12_36dho"]
 [ext_resource type="Script" uid="uid://cpv2o0cfvloa4" path="res://Scripts/States/run.gd" id="12_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cc8k7dsjfcgnb" path="res://Assets/Character/_JumpFallInbetween.png" id="13_h4iuc"]
 [ext_resource type="Script" uid="uid://cgm68sfx0gcch" path="res://Scripts/player_camera.gd" id="16_igrcy"]
@@ -28,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://u3ln0ljwcpof" path="res://Assets/Character/_Hit.png" id="21_0gysh"]
 [ext_resource type="Texture2D" uid="uid://day7mqfrsgrfb" path="res://Assets/Character/_DeathNoMovement.png" id="23_ypfnu"]
 [ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/damage_area.gd" id="24_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://c2xc6k2yf7nyk" path="res://Assets/Character/_SlideFull.png" id="26_yh6i2"]
 [ext_resource type="AudioStream" uid="uid://dgwcwh5k00ie8" path="res://00_Global/Audio/Player Audio/aargh.wav" id="27_vfarp"]
 [ext_resource type="AudioStream" uid="uid://cq4rsq35u3seb" path="res://00_Global/Audio/Player Audio/jump.wav" id="30_xuaoq"]
 [ext_resource type="AudioStream" uid="uid://dum2mbcs0131y" path="res://00_Global/Audio/Player Audio/land.wav" id="31_wohnl"]
@@ -263,6 +267,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_7dp3o"]
 resource_name = "Dash"
 length = 0.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -659,6 +664,47 @@ tracks/3/keys = {
 "values": [ExtResource("6_tx1dd")]
 }
 
+[sub_resource type="Animation" id="Animation_nv4vc"]
+resource_name = "Slide"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("26_yh6i2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_vfarp"]
 resource_name = "Take_Damage"
 length = 0.3
@@ -767,6 +813,7 @@ _data = {
 &"Jump Fall Inbetween": SubResource("Animation_igrcy"),
 &"RESET": SubResource("Animation_tx1dd"),
 &"Run": SubResource("Animation_gymyn"),
+&"Slide": SubResource("Animation_nv4vc"),
 &"Take_Damage": SubResource("Animation_vfarp"),
 &"Wall Slide": SubResource("Animation_h4iuc")
 }
@@ -833,11 +880,20 @@ script = ExtResource("8_p1odr")
 unique_name_in_owner = true
 script = ExtResource("9_83xs0")
 
+[node name="Dash" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("10_wohnl")
+
+[node name="Slide" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("11_nv4vc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_83xs0")
 position = Vector2(5, -40)
 texture = ExtResource("1_v0iea")
 hframes = 10
+script = ExtResource("12_36dho")
 
 [node name="AttackSprite2D" type="Sprite2D" parent="Sprite2D"]
 unique_name_in_owner = true
@@ -848,12 +904,10 @@ hframes = 8
 frame = 4
 
 [node name="CollisionStand" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_7dp3o")
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_h4iuc")
 
@@ -900,6 +954,7 @@ energy = 0.75
 texture = SubResource("GradientTexture2D_fd4e3")
 
 [node name="InputHints" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -46)
 script = ExtResource("16_qqcod")
 

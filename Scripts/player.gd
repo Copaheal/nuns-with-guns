@@ -8,7 +8,7 @@ signal damage_taken
 
 #region // @onready variables
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: PlayerSprite = $Sprite2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
@@ -58,11 +58,14 @@ var max_hp:float = 20 :
 		max_hp = value
 		Messages.player_health_changed.emit(hp,max_hp)
 		
-var dash:bool = false
+var dash:bool = true
+var dash_count:int = 0
 var double_jump:bool = true
 var jump_count:int = 0
 var ground_slam:bool = false
-var slide:bool = false
+var slide:bool = true
+var slide_count:int = 0
+
 
 #endregion
 
@@ -202,30 +205,6 @@ func update_direction() -> void:
 				attack_sprite.position.x = 24
 	pass
 
-#Ability Logic
-#func dash(delta):
-		##Dash Activation
-	#if Input.is_action_just_pressed("dash") and direction.x and not is_dashing and dash_timer <= 0:
-		#is_dashing = true
-		#dash_start_position = position.x
-		#dash_direction = direction
-		#dash_timer = dash_cooldown
-		#
-	##Performs actual dash
-	#if is_dashing:
-		#var current_distance = abs(position.x - dash_start_position)
-		#if current_distance >= dash_max_distance or is_on_wall():
-			#is_dashing = false
-			#anim_player.play("Falling")
-		#else:
-			#anim_player.play("Dash")
-			#velocity.x = dash_direction.x * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
-			#velocity.y = 0
-				#
-	##Reduces the Dash Timer
-	#if dash_timer > 0:
-		#dash_timer -= delta
-
 func on_player_healed(amount:float)->void:
 	hp += amount
 	print("Player healed for: ", amount)
@@ -238,3 +217,13 @@ func _on_damage_taken(attack_area:AttackArea)->void:
 	hp -= attack_area.damage
 	damage_taken.emit()
 	pass
+
+func can_dash()->bool:
+	if dash == false or dash_count > 0:
+		return false
+	return true
+
+func can_slide()->bool:
+	if slide == false or slide_count > 0:
+		return false
+	return true

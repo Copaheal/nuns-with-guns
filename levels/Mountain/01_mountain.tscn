@@ -69,7 +69,7 @@ metadata/_custom_type_script = "uid://crm4dveubgrba"
 [node name="LevelTransition" parent="." instance=ExtResource("2_mqs2b")]
 z_index = 256
 position = Vector2(-8, 128)
-size = 4
+size = 10
 target_level = "uid://b16sla3kyw34m"
 target_area_name = "LevelTransition2"
 
@@ -218,3 +218,9 @@ process_material = SubResource("ParticleProcessMaterial_71eaw")
 
 [node name="TestDummy" parent="Props" instance=ExtResource("15_li10s")]
 position = Vector2(154, 399)
+
+[node name="Door3" parent="." instance=ExtResource("10_mqs2b")]
+position = Vector2(198, 389)
+
+[node name="Switch3" parent="Door3" instance=ExtResource("11_uvxrm")]
+position = Vector2(42, 10)
