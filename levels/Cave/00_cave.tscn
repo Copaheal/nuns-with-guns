@@ -211,6 +211,10 @@ scale = Vector2(0.75, 0.75)
 position = Vector2(47, 131)
 scale = Vector2(0.75, 0.75)
 
+[node name="Crate3" parent="Props/Boxes" instance=ExtResource("12_pg4j0")]
+position = Vector2(57.000004, 106.00001)
+scale = Vector2(0.75, 0.75)
+
 [node name="Lighting" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
