@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b1jkg4y8uvmy"]
+[gd_scene load_steps=19 format=4 uid="uid://b1jkg4y8uvmy"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_2fqq6"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="3_e2uee"]
@@ -13,6 +13,8 @@
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="12_xmbpx"]
 [ext_resource type="AudioStream" uid="uid://dp6ihksf7yf5i" path="res://00_Global/Audio/music/dungeon_01.ogg" id="13_cj4ss"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="13_xmbpx"]
+[ext_resource type="PackedScene" uid="uid://dihkv7f3x3tha" path="res://DoorandSwitch/door.tscn" id="14_tkpgb"]
+[ext_resource type="PackedScene" uid="uid://dngi5p6xj5anr" path="res://DoorandSwitch/switch.tscn" id="15_pg4j0"]
 
 [sub_resource type="Gradient" id="Gradient_b1b6h"]
 colors = PackedColorArray(0.7989663, 0.9091569, 0.9955722, 0, 1, 1, 1, 1)
@@ -226,3 +228,9 @@ modulate = Color(0.69119865, 0.86207265, 0.98199487, 1)
 material = ExtResource("12_xmbpx")
 position = Vector2(933, 562)
 texture = SubResource("NoiseTexture2D_xmbpx")
+
+[node name="Door" parent="." instance=ExtResource("14_tkpgb")]
+position = Vector2(121, 141)
+
+[node name="Switch" parent="Door" instance=ExtResource("15_pg4j0")]
+position = Vector2(1312, 19)

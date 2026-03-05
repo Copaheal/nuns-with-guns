@@ -35,7 +35,7 @@ func exit() -> void:
 
 #What happens when an input is pressed/released
 func handle_input(_event:InputEvent) -> PlayerState:
-	if _event.is_action_pressed("slide") and player.can_slide():
+	if _event.is_action_pressed("dash") and player.can_slide():
 		return slide
 	if _event.is_action_pressed("attack"):
 		return attack
