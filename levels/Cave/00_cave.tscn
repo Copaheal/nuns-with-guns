@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b1jkg4y8uvmy"]
+[gd_scene load_steps=20 format=4 uid="uid://b1jkg4y8uvmy"]
 
 [ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_2fqq6"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="3_e2uee"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/Props/animated_torch.tscn" id="10_e2uee"]
 [ext_resource type="Texture2D" uid="uid://7g8re4bntl1a" path="res://Assets/TileSets/light_stream.jpg" id="11_2fqq6"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="12_b1b6h"]
+[ext_resource type="PackedScene" uid="uid://ditppgppy8kti" path="res://Scenes/Props/crate_wood.tscn" id="12_pg4j0"]
 [ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="12_psaqg"]
 [ext_resource type="Material" uid="uid://btbmdnmix3ob7" path="res://Shaders/Fog_Fade_Mat.tres" id="12_xmbpx"]
 [ext_resource type="AudioStream" uid="uid://dp6ihksf7yf5i" path="res://00_Global/Audio/music/dungeon_01.ogg" id="13_cj4ss"]
@@ -132,71 +133,83 @@ texture = ExtResource("9_lsaem")
 
 [node name="Props" type="Node2D" parent="."]
 
-[node name="AnimatedTorch11" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="Torches" type="Node" parent="Props"]
+
+[node name="AnimatedTorch11" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(381, 435)
 flip_h = true
 
-[node name="AnimatedTorch15" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch15" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(629, 588)
 flip_h = true
 
-[node name="AnimatedTorch16" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch16" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1155, 363)
 flip_h = true
 
-[node name="AnimatedTorch17" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch17" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1485, 110)
 flip_h = true
 
-[node name="AnimatedTorch2" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch2" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(60, 356)
 
-[node name="AnimatedTorch3" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch3" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(173, 127)
 speed_scale = 1.2
 flip_h = true
 
-[node name="AnimatedTorch13" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch13" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(419.00003, 203)
 rotation = -0.3525673
 speed_scale = 1.2
 flip_h = true
 
-[node name="AnimatedTorch4" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch4" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(636, 248)
 
-[node name="AnimatedTorch5" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch5" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(828, 440)
 
-[node name="AnimatedTorch6" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch6" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1268, 152)
 
-[node name="AnimatedTorch7" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch7" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1662, 427)
 speed_scale = 1.2
 flip_h = true
 
-[node name="AnimatedTorch8" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch8" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1772, 256)
 
-[node name="AnimatedTorch9" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch9" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(2125, 431)
 speed_scale = 1.2
 
-[node name="AnimatedTorch10" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch10" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(2469, 191)
 speed_scale = 1.2
 flip_h = true
 
-[node name="AnimatedTorch12" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch12" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1362, 572)
 speed_scale = 1.2
 flip_h = true
 
-[node name="AnimatedTorch14" parent="Props" instance=ExtResource("10_e2uee")]
+[node name="AnimatedTorch14" parent="Props/Torches" instance=ExtResource("10_e2uee")]
 position = Vector2(1991, 232)
 speed_scale = 1.2
 flip_h = true
+
+[node name="Boxes" type="Node" parent="Props"]
+
+[node name="Crate" parent="Props/Boxes" instance=ExtResource("12_pg4j0")]
+position = Vector2(78, 131)
+scale = Vector2(0.75, 0.75)
+
+[node name="Crate2" parent="Props/Boxes" instance=ExtResource("12_pg4j0")]
+position = Vector2(47, 131)
+scale = Vector2(0.75, 0.75)
 
 [node name="Lighting" type="Node2D" parent="."]
 
