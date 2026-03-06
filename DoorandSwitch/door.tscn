@@ -172,6 +172,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slajd"]
+resource_local_to_scene = true
 size = Vector2(16, 98.5)
 
 [node name="Door" type="Node2D"]
