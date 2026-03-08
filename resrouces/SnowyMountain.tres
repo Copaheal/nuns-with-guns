@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://cog5j7dg10ard"]
+[gd_resource type="TileSet" format=3 uid="uid://cog5j7dg10ard"]
 
 [ext_resource type="Texture2D" uid="uid://dtyp65yhfoxov" path="res://Assets/TileSets/Snowy Mountain/mainlevbuild1.png" id="1_tnhdx"]
 [ext_resource type="Texture2D" uid="uid://i2ptdkpxrt2e" path="res://Assets/TileSets/Snowy Mountain/mainlevbuild2.png" id="2_5a2q1"]

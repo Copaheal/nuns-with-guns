@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HitParticleSettings" load_steps=4 format=3 uid="uid://or36xkaokqsc"]
+[gd_resource type="Resource" script_class="HitParticleSettings" format=3 uid="uid://or36xkaokqsc"]
 
 [ext_resource type="Script" uid="uid://cs4h5qf0jc0aj" path="res://00_Global/VisualEffects/hit_particle_settings.gd" id="1_kgqro"]
 [ext_resource type="Texture2D" uid="uid://bivtocuy0ko6h" path="res://Assets/VariousSprites/props_destructible.png" id="2_yh8gd"]

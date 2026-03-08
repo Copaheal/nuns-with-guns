@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=210 format=3 uid="uid://dbubr4jl6jfot"]
+[gd_resource type="TileSet" format=3 uid="uid://dbubr4jl6jfot"]
 
 [ext_resource type="Texture2D" uid="uid://bh384f0ci52sp" path="res://Assets/TileSets/Cave Parts/mainlev_build.png" id="1_giar4"]
 [ext_resource type="Texture2D" uid="uid://b07d37xyvoqfm" path="res://Assets/TileSets/Cave Parts/props1.png" id="2_o84yr"]

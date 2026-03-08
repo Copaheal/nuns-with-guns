@@ -44,6 +44,8 @@ func enter() -> void:
 #What happens when we exit state.
 func exit() -> void:
 	player.gravity_multiplier = 1.0
+	player.collision_crouch.disabled = true
+	player.collision_stand.disabled = false
 	pass
 
 
