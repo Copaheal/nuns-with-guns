@@ -186,6 +186,7 @@ material = SubResource("CanvasItemMaterial_odxvs")
 position = Vector2(191, 327)
 amount = 150
 lifetime = 10.0
+preprocess = 150.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_gymdk")
 

@@ -7,7 +7,6 @@ const DOOR_CRASH_AUDIO = preload("uid://caeqcai1sw5im")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return

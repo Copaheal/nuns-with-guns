@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s27ydr6jg4ht"]
+[gd_scene format=3 uid="uid://s27ydr6jg4ht"]
 
 [ext_resource type="Script" uid="uid://bqc6kjsws0vfv" path="res://PauseMenu/Scripts/pause_menu.gd" id="1_tobvk"]
 [ext_resource type="PackedScene" uid="uid://u6i7ldvgi6bw" path="res://PauseMenu/map_node.tscn" id="2_ganop"]
@@ -57,11 +57,11 @@ _data = {
 &"RESET": SubResource("Animation_q8wey")
 }
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1334569547]
 process_mode = 3
 script = ExtResource("1_tobvk")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=565162623]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +69,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1552146869]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09411765, 0.09411765, 0.09411765, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Control"]
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=918880610]
 custom_minimum_size = Vector2(0, 78)
 layout_mode = 1
 anchors_preset = 10
@@ -86,7 +86,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Control/ColorRect2"]
+[node name="Label" type="Label" parent="Control/ColorRect2" unique_id=541846229]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -105,7 +105,7 @@ theme_override_font_sizes/font_size = 32
 text = "PAUSED"
 horizontal_alignment = 2
 
-[node name="PauseScreen" type="Control" parent="Control"]
+[node name="PauseScreen" type="Control" parent="Control" unique_id=1187201533]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -115,14 +115,14 @@ offset_top = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Map" type="Control" parent="Control/PauseScreen"]
+[node name="Map" type="Control" parent="Control/PauseScreen" unique_id=618627191]
 anchors_preset = 0
 offset_left = 214.0
 offset_top = 53.0
 offset_right = 919.0
 offset_bottom = 387.0
 
-[node name="MapNode" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+[node name="MapNode" parent="Control/PauseScreen/Map" unique_id=1502373535 instance=ExtResource("2_ganop")]
 modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
 layout_mode = 0
 offset_left = 2.0
@@ -135,7 +135,7 @@ entrances_right = Array[float]([4.25])
 entrances_bottom = Array[float]([])
 entrances_left = Array[float]([])
 
-[node name="MapNode2" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+[node name="MapNode2" parent="Control/PauseScreen/Map" unique_id=149192340 instance=ExtResource("2_ganop")]
 modulate = Color(0.26918554, 0.26205456, 0.26205456, 1)
 layout_mode = 0
 offset_left = 145.0
@@ -148,7 +148,7 @@ entrances_right = Array[float]([])
 entrances_bottom = Array[float]([])
 entrances_left = Array[float]([22.8])
 
-[node name="MapNode3" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+[node name="MapNode3" parent="Control/PauseScreen/Map" unique_id=1100938040 instance=ExtResource("2_ganop")]
 modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
 layout_mode = 0
 offset_left = 145.0
@@ -161,7 +161,7 @@ entrances_right = Array[float]([18.0])
 entrances_bottom = Array[float]([2.0])
 entrances_left = Array[float]([])
 
-[node name="MapNode4" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+[node name="MapNode4" parent="Control/PauseScreen/Map" unique_id=2021474356 instance=ExtResource("2_ganop")]
 modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
 layout_mode = 0
 offset_left = 197.0
@@ -174,7 +174,7 @@ entrances_right = Array[float]([14.75])
 entrances_bottom = Array[float]([])
 entrances_left = Array[float]([2.0])
 
-[node name="MapNode5" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+[node name="MapNode5" parent="Control/PauseScreen/Map" unique_id=1504482075 instance=ExtResource("2_ganop")]
 modulate = Color(0.54901963, 0.4509804, 0.4509804, 1)
 layout_mode = 0
 offset_left = 338.0
@@ -187,7 +187,7 @@ entrances_right = Array[float]([9.2])
 entrances_bottom = Array[float]([])
 entrances_left = Array[float]([9.2])
 
-[node name="MapNode6" parent="Control/PauseScreen/Map" instance=ExtResource("2_ganop")]
+[node name="MapNode6" parent="Control/PauseScreen/Map" unique_id=1941647502 instance=ExtResource("2_ganop")]
 modulate = Color(0.33825412, 0.39088067, 0.4321134, 1)
 layout_mode = 0
 offset_left = 364.0
@@ -200,7 +200,20 @@ entrances_right = Array[float]([9.2, 41.85])
 entrances_bottom = Array[float]([])
 entrances_left = Array[float]([9.0])
 
-[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map"]
+[node name="MapNode7" parent="Control/PauseScreen/Map" unique_id=272667546 instance=ExtResource("2_ganop")]
+modulate = Color(0.33825412, 0.39088067, 0.4321134, 1)
+layout_mode = 0
+offset_left = 423.0
+offset_top = 20.0
+offset_right = 479.0
+offset_bottom = 70.0
+linked_scene = "uid://dao4jd6jonwqa"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([9.2, 42.0])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([9.05, 42.0])
+
+[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=1182364585]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 0
@@ -209,7 +222,7 @@ offset_top = 71.0
 offset_right = 11.0
 offset_bottom = 71.0
 
-[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator"]
+[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=1483295888]
 layout_mode = 0
 offset_left = -5.0
 offset_top = -5.0
@@ -217,13 +230,11 @@ offset_right = 5.0
 offset_bottom = 5.0
 texture = SubResource("GradientTexture2D_tfo3q")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator"]
-libraries = {
-&"": SubResource("AnimationLibrary_hy7yv")
-}
-autoplay = "Default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=1179026548]
+libraries/ = SubResource("AnimationLibrary_hy7yv")
+autoplay = &"Default"
 
-[node name="AbilitiesLabel" type="Label" parent="Control/PauseScreen"]
+[node name="AbilitiesLabel" type="Label" parent="Control/PauseScreen" unique_id=150988588]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
@@ -232,7 +243,7 @@ offset_bottom = 27.0
 theme_override_font_sizes/font_size = 32
 text = "Abilities"
 
-[node name="MapLabel" type="Label" parent="Control/PauseScreen"]
+[node name="MapLabel" type="Label" parent="Control/PauseScreen" unique_id=1743634130]
 layout_mode = 0
 offset_left = 204.0
 offset_top = 12.0
@@ -241,7 +252,7 @@ offset_bottom = 42.0
 theme_override_font_sizes/font_size = 32
 text = "Map"
 
-[node name="SystemMenuButton" type="Button" parent="Control/PauseScreen"]
+[node name="SystemMenuButton" type="Button" parent="Control/PauseScreen" unique_id=1343860111]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -259,7 +270,7 @@ theme_override_font_sizes/font_size = 32
 text = "System
 "
 
-[node name="System" type="Control" parent="Control"]
+[node name="System" type="Control" parent="Control" unique_id=2036662114]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -270,7 +281,7 @@ offset_top = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/System"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/System" unique_id=948361708]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -282,39 +293,39 @@ offset_bottom = 437.9645
 grow_horizontal = 2
 theme_override_constants/separation = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1958156370]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BackToMapButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer"]
+[node name="BackToMapButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=575788999]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Back to Map"
 
-[node name="BackToTitleButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer"]
+[node name="BackToTitleButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=385189965]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Return to Title"
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer" unique_id=563554237]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Audio Levels"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1421768919]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=1889113298]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2"]
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=1137617976]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -323,16 +334,16 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=2106981051]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=162800473]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3"]
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=904801455]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -341,16 +352,16 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=529283911]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1758096588]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "UI"
 
-[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4"]
+[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=2117796551]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

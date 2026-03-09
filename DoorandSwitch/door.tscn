@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dihkv7f3x3tha"]
+[gd_scene format=3 uid="uid://dihkv7f3x3tha"]
 
 [ext_resource type="Script" uid="uid://dbl430jh7sy2y" path="res://DoorandSwitch/door.gd" id="1_s6aju"]
 [ext_resource type="Texture2D" uid="uid://vljhtt232241" path="res://DoorandSwitch/door_and_switch.png" id="1_slajd"]
@@ -175,18 +175,18 @@ _data = {
 resource_local_to_scene = true
 size = Vector2(16, 98.5)
 
-[node name="Door" type="Node2D"]
+[node name="Door" type="Node2D" unique_id=277593399]
 process_mode = 3
 script = ExtResource("1_s6aju")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1146464735]
 position = Vector2(0, 15)
 texture = ExtResource("1_slajd")
 vframes = 3
 frame = 1
 region_rect = Rect2(0, 32, 32, 21)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=922656675]
 z_index = 15
 offset_left = -16.0
 offset_top = -104.0
@@ -198,16 +198,14 @@ patch_margin_top = 15
 patch_margin_bottom = 6
 axis_stretch_horizontal = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gruhw")
-}
-autoplay = "Closed"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1397392454]
+libraries/ = SubResource("AnimationLibrary_gruhw")
+autoplay = &"Closed"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1649724536]
 z_index = 15
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1807863619]
 position = Vector2(0, -43.25)
 shape = SubResource("RectangleShape2D_slajd")
