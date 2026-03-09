@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bf2y2b3e6sxek"]
+[gd_scene format=3 uid="uid://bf2y2b3e6sxek"]
 
 [ext_resource type="Script" uid="uid://cod5mp3pl7ygk" path="res://Scenes/Props/Test Dummy/test_dummy.gd" id="1_ykqag"]
 [ext_resource type="Script" uid="uid://cs4h5qf0jc0aj" path="res://00_Global/VisualEffects/hit_particle_settings.gd" id="2_n4oqi"]
@@ -23,18 +23,18 @@ region = Rect2(16, 52, 16, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mam7r"]
 size = Vector2(16, 32)
 
-[node name="TestDummy" type="Node2D"]
+[node name="TestDummy" type="Node2D" unique_id=187690684]
 script = ExtResource("1_ykqag")
 particles = Array[ExtResource("2_n4oqi")]([ExtResource("3_4tbyx"), ExtResource("4_stro7")])
 base_wobble_angle = 9.0
 wobble_speed = 0.25
 
-[node name="BodySprite" type="Sprite2D" parent="."]
+[node name="BodySprite" type="Sprite2D" parent="." unique_id=1696747144]
 position = Vector2(0, -6)
 texture = SubResource("AtlasTexture_rhe07")
 offset = Vector2(0, -19)
 
-[node name="HazardArea" type="Area2D" parent="BodySprite"]
+[node name="HazardArea" type="Area2D" parent="BodySprite" unique_id=1574313086]
 position = Vector2(0, -18)
 collision_layer = 0
 collision_mask = 8
@@ -42,24 +42,24 @@ script = ExtResource("6_n4oqi")
 damage = 10.0
 metadata/_custom_type_script = "uid://b6l1p1druxuvd"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodySprite/HazardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodySprite/HazardArea" unique_id=1781958206]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_4tbyx")
 debug_color = Color(0.7019608, 0, 0.023529412, 0.2901961)
 
-[node name="BaseSprite" type="Sprite2D" parent="."]
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=1489877032]
 position = Vector2(0, -5.526376)
 texture = SubResource("AtlasTexture_2k7y8")
 
-[node name="DamageArea" type="Area2D" parent="."]
+[node name="DamageArea" type="Area2D" parent="." unique_id=1157387997]
 position = Vector2(0, -10)
-collision_layer = 96
+collision_layer = 32
 collision_mask = 0
 script = ExtResource("6_etjug")
 audio = ExtResource("7_fw3nv")
 metadata/_custom_type_script = "uid://btra14dtcmhwc"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1703067772]
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_mam7r")
 debug_color = Color(0, 0.6, 0.69803923, 0)
