@@ -11,6 +11,8 @@ var time:float = 0.0
 var effect_time:float = 0.0
 
 @onready var damage_area: DamageArea = %DamageArea
+@onready var crouch_ray_up: RayCast2D = %CrouchRayUp
+@onready var crouch_ray_down: RayCast2D = %CrouchRayDown
 
 
 
@@ -22,7 +24,6 @@ func init() -> void:
 
 #what happens when we enter State.
 func enter() -> void:
-
 	player.anim_player.play("Slide")
 	time = duration
 	effect_time = 0.0
@@ -51,7 +52,7 @@ func exit() -> void:
 
 #What happens when an input is pressed/released
 func handle_input(_event:InputEvent) -> PlayerState:
-	
+
 	return null
 
 
@@ -59,7 +60,7 @@ func handle_input(_event:InputEvent) -> PlayerState:
 func process(_delta:float) -> PlayerState:
 	time -= _delta
 	if time <= 0:
-		return idle
+		return crouch_walk
 	
 	effect_time -= _delta
 	if effect_time < 0:
@@ -79,3 +80,10 @@ func get_slide_direction()->void:
 	if player.sprite.flip_h == true:
 		dir = -1.0
 	pass
+
+func _can_stand()->bool:
+	crouch_ray_up.force_raycast_update()
+	crouch_ray_down.force_raycast_update()
+	if crouch_ray_down.is_colliding() and crouch_ray_up.is_colliding():
+		return false
+	return true

@@ -29,6 +29,8 @@ func handle_input(_event:InputEvent) -> PlayerState:
 		return attack
 	if _event.is_action_pressed("jump"):
 		return jump
+	if _event.is_action_pressed("crouch"):
+		return crouch_walk
 	return next_state
 
 

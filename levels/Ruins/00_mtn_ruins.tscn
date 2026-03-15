@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://8t018agna7bu"]
 
-[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_8va0f"]
+[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/LevelScripts/Level_Bounds.gd" id="1_8va0f"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="2_4ay0n"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="3_85ym4"]
 [ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="4_ld6p0"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://fttd0lnlm5uc" path="res://Assets/Backgrounds/Snowy Mountain/background3.png" id="8_4bx6p"]
 [ext_resource type="Texture2D" uid="uid://cayeaqbxmj4p7" path="res://Assets/Backgrounds/Snowy Mountain/background4.png" id="9_ydg2l"]
 [ext_resource type="Texture2D" uid="uid://q18b0yjgknp7" path="res://Assets/Backgrounds/Snowy Mountain/background5.png" id="10_xr3hq"]
-[ext_resource type="Script" uid="uid://gi10os5qrns6" path="res://Scripts/breakable.gd" id="11_4bx6p"]
-[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/damage_area.gd" id="12_ydg2l"]
+[ext_resource type="Script" uid="uid://gi10os5qrns6" path="res://Scripts/PropScripts/breakable.gd" id="11_4bx6p"]
+[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/PropScripts/damage_area.gd" id="12_ydg2l"]
 [ext_resource type="PackedScene" uid="uid://c147f6vsvri3o" path="res://Scenes/Props/animated_torch.tscn" id="13_ydg2l"]
+[ext_resource type="PackedScene" uid="uid://b3rn8mi671te3" path="res://Scenes/Props/Test Dummy/test_dummy.tscn" id="14_xr3hq"]
+[ext_resource type="PackedScene" uid="uid://bf2y2b3e6sxek" path="res://Scenes/Props/Test Dummy/spike_dummy.tscn" id="15_qmvr8"]
+[ext_resource type="PackedScene" uid="uid://ditppgppy8kti" path="res://Scenes/Props/crate_wood.tscn" id="16_htuq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr3hq"]
 size = Vector2(82, 133)
@@ -179,53 +182,83 @@ tile_set = ExtResource("5_jtix8")
 
 [node name="Props" type="Node" parent="." unique_id=1163262064]
 
-[node name="AnimatedTorch" parent="Props" unique_id=2121359041 instance=ExtResource("13_ydg2l")]
+[node name="Torches" type="Node" parent="Props" unique_id=1606099133]
+
+[node name="AnimatedTorch" parent="Props/Torches" unique_id=2121359041 instance=ExtResource("13_ydg2l")]
 position = Vector2(162, 252)
 
-[node name="AnimatedTorch2" parent="Props" unique_id=225989040 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch2" parent="Props/Torches" unique_id=225989040 instance=ExtResource("13_ydg2l")]
 position = Vector2(336, 252)
 
-[node name="AnimatedTorch3" parent="Props" unique_id=125625972 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch3" parent="Props/Torches" unique_id=125625972 instance=ExtResource("13_ydg2l")]
 position = Vector2(504, 251)
 
-[node name="AnimatedTorch4" parent="Props" unique_id=1129497338 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch4" parent="Props/Torches" unique_id=1129497338 instance=ExtResource("13_ydg2l")]
 position = Vector2(708, 252)
 
-[node name="AnimatedTorch5" parent="Props" unique_id=2106005424 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch5" parent="Props/Torches" unique_id=2106005424 instance=ExtResource("13_ydg2l")]
 position = Vector2(534, 458)
 
-[node name="AnimatedTorch6" parent="Props" unique_id=356130386 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch6" parent="Props/Torches" unique_id=356130386 instance=ExtResource("13_ydg2l")]
 position = Vector2(169, 451)
 
-[node name="AnimatedTorch7" parent="Props" unique_id=1778017796 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch7" parent="Props/Torches" unique_id=1778017796 instance=ExtResource("13_ydg2l")]
 position = Vector2(306, 674)
 
-[node name="AnimatedTorch8" parent="Props" unique_id=1280601469 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch8" parent="Props/Torches" unique_id=1280601469 instance=ExtResource("13_ydg2l")]
 position = Vector2(305, 878)
 
-[node name="AnimatedTorch9" parent="Props" unique_id=1450119559 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch9" parent="Props/Torches" unique_id=1450119559 instance=ExtResource("13_ydg2l")]
 position = Vector2(596, 944)
 
-[node name="AnimatedTorch10" parent="Props" unique_id=607856244 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch10" parent="Props/Torches" unique_id=607856244 instance=ExtResource("13_ydg2l")]
 position = Vector2(859, 946)
 
-[node name="AnimatedTorch11" parent="Props" unique_id=62888008 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch11" parent="Props/Torches" unique_id=62888008 instance=ExtResource("13_ydg2l")]
 position = Vector2(986, 820)
 
-[node name="AnimatedTorch12" parent="Props" unique_id=1253754240 instance=ExtResource("13_ydg2l")]
-position = Vector2(658, 707)
+[node name="AnimatedTorch12" parent="Props/Torches" unique_id=1253754240 instance=ExtResource("13_ydg2l")]
+position = Vector2(658, 711)
 
-[node name="AnimatedTorch13" parent="Props" unique_id=126847404 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch13" parent="Props/Torches" unique_id=126847404 instance=ExtResource("13_ydg2l")]
 position = Vector2(468, 710)
 
-[node name="AnimatedTorch14" parent="Props" unique_id=2064346321 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch14" parent="Props/Torches" unique_id=2064346321 instance=ExtResource("13_ydg2l")]
 position = Vector2(978, 624)
 
-[node name="AnimatedTorch15" parent="Props" unique_id=1495533770 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch15" parent="Props/Torches" unique_id=1495533770 instance=ExtResource("13_ydg2l")]
 position = Vector2(873, 446)
 
-[node name="AnimatedTorch16" parent="Props" unique_id=2051643457 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch16" parent="Props/Torches" unique_id=2051643457 instance=ExtResource("13_ydg2l")]
 position = Vector2(1000, 263)
 
-[node name="AnimatedTorch17" parent="Props" unique_id=59282391 instance=ExtResource("13_ydg2l")]
+[node name="AnimatedTorch17" parent="Props/Torches" unique_id=59282391 instance=ExtResource("13_ydg2l")]
 position = Vector2(876, 260)
+
+[node name="Dummies" type="Node" parent="Props" unique_id=1686881439]
+
+[node name="TestDummy" parent="Props/Dummies" unique_id=493380478 instance=ExtResource("14_xr3hq")]
+position = Vector2(637, 492)
+
+[node name="TestDummy2" parent="Props/Dummies" unique_id=1839470255 instance=ExtResource("14_xr3hq")]
+position = Vector2(574, 492)
+
+[node name="TestDummy3" parent="Props/Dummies" unique_id=963419752 instance=ExtResource("14_xr3hq")]
+position = Vector2(504, 492)
+
+[node name="TestDummy4" parent="Props/Dummies" unique_id=187690684 instance=ExtResource("15_qmvr8")]
+position = Vector2(158, 588)
+
+[node name="TestDummy5" parent="Props/Dummies" unique_id=366918791 instance=ExtResource("15_qmvr8")]
+position = Vector2(479, 300)
+
+[node name="Breakables" type="Node" parent="Props" unique_id=1580286433]
+
+[node name="Crate" parent="Props" unique_id=489764396 instance=ExtResource("16_htuq8")]
+position = Vector2(510, 728)
+
+[node name="Crate2" parent="Props" unique_id=2120630741 instance=ExtResource("16_htuq8")]
+position = Vector2(552, 728)
+
+[node name="Crate3" parent="Props" unique_id=806332534 instance=ExtResource("16_htuq8")]
+position = Vector2(510, 695)

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dw0a21f5hs5o1"]
 
-[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_rehid"]
+[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/LevelScripts/Level_Bounds.gd" id="1_rehid"]
 [ext_resource type="PackedScene" uid="uid://dfj7aiftimnu" path="res://Scenes/Level_Transition.tscn" id="2_jm3c1"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="3_bfdrx"]
 [ext_resource type="Script" uid="uid://d0gjtlikuwioc" path="res://00_Global/Audio/music/music_auto_trigger.gd" id="4_pgx24"]
@@ -63,6 +63,7 @@ tile_set = ExtResource("5_pthr1")
 [node name="BackgroundProps" type="TileMapLayer" parent="Tilemaps" unique_id=436063183]
 z_index = -1
 position = Vector2(0, -4)
+tile_map_data = PackedByteArray("AAAEAAcAAAAdABcAABAFAAcAAAAeABcAAAAGAAcAAAAfABcAAAALAAUAAAAdABcAAAAMAAUAAAAdABcAAAANAAUAAAAeABcAAAAOAAUAAAAfABcAAAADAAcAAAAeABcAABACAAcAAAAfABcAABAYAAcAAAAeABcAABAXAAcAAAAfABcAABAWAAcAAAAfABcAABAZAAcAAAAdABcAABARAAUAAAAkACEAACASAAUAAAAlACEAACARAAQAAAAkACIAACASAAQAAAAlACIAACA=")
 tile_set = ExtResource("5_pthr1")
 
 [node name="Midground" type="TileMapLayer" parent="Tilemaps" unique_id=127477216]
@@ -73,11 +74,13 @@ tile_set = ExtResource("5_pthr1")
 [node name="PlatformLayer" type="TileMapLayer" parent="Tilemaps" unique_id=1332659713]
 z_index = 1
 position = Vector2(0, -4)
+tile_map_data = PackedByteArray("AAAUAA4AAQAlAAMAAAAVAA4AAQAmAAMAAAAWAA4AAQAnAAMAAAA=")
 tile_set = ExtResource("5_pthr1")
 
 [node name="Foreground" type="TileMapLayer" parent="Tilemaps" unique_id=426750106]
 z_index = 3
 position = Vector2(0, -4)
+tile_map_data = PackedByteArray("AAAJAA4AAAAeACYAAAAJAA8AAAAeACcAAAAKAA4AAAAfACYAAAAKAA8AAAAfACcAAAALAA4AAAAgACYAAAALAA8AAAAgACcAAAAMAA4AAAAhACYAAAAMAA8AAAAhACcAAAANAA4AAAAiACYAAAANAA8AAAAiACcAAAAOAA4AAAAjACYAAAAOAA8AAAAjACcAAAAPAA4AAAAkACYAAAAPAA8AAAAkACcAAAAQAA4AAAAlACYAAAAQAA8AAAAlACcAAAARAA4AAAAmACYAAAARAA8AAAAmACcAAAADAAYAAgAwAA8AAAADAAcAAgAwABAAAAADAAgAAgAwABEAAAAEAAYAAgAxAA8AAAAEAAcAAgAxABAAAAAEAAgAAgAxABEAAAAFAAYAAgAyAA8AAAAFAAcAAgAyABAAAAAFAAgAAgAyABEAAAAGAAYAAgAzAA8AAAAGAAcAAgAzABAAAAAGAAgAAgAzABEAAAAZAAYAAgAwAA8AAAAZAAcAAgAwABAAAAAZAAgAAgAwABEAAAAaAAYAAgAxAA8AAAAaAAcAAgAxABAAAAAaAAgAAgAxABEAAAAbAAYAAgAyAA8AAAAbAAcAAgAyABAAAAAbAAgAAgAyABEAAAAcAAYAAgAzAA8AAAAcAAcAAgAzABAAAAAcAAgAAgAzABEAAAAIAAYAAQAuAAEAAAAIAAcAAQAuAAIAAAAIAAgAAQAuAAMAAAAIAAkAAQAuAAQAAAAIAAoAAQAuAAUAAAAUAAYAAQAuAAEAAAAUAAcAAQAuAAIAAAATAAUAAQAuAAEAAAATAAYAAQAuAAIAAAATAAcAAQAuAAEAAAATAAgAAQAuAAIAAAA=")
 tile_set = ExtResource("5_pthr1")
 
 [node name="Parallaxed Background" type="Node2D" parent="." unique_id=366942400]

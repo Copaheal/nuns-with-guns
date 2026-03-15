@@ -15,6 +15,8 @@ var next_state:PlayerState
 @onready var death: PlayerStateDeath = %Death
 @onready var dash: PlayerStateDash = %Dash
 @onready var slide: PlayerStateSlide = %Slide
+@onready var ground_slam: PlayerStateGroundSlam = %GroundSlam
+@onready var crouch_walk: PlayerStateCrouchWalk = %CrouchWalk
 
 
 #endregion

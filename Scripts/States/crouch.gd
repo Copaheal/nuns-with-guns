@@ -3,6 +3,7 @@ class_name PlayerStateCrouch extends PlayerState
 #region // State Variables
 
 @export var deceleration_rate:float = 10
+@onready var crouch_ray_up: RayCast2D = %CrouchRayUp
 
 #endregion
 
@@ -17,7 +18,7 @@ func enter() -> void:
 	#play animation
 	player.anim_player.play("Crouch")
 	player.collision_stand.disabled = true
-	player.collision_crouch.disabled = false
+	player.collision_crouch.disabled =  false
 	player.collision_crouch.position.y = -13
 	player.dastand.disabled = true
 	player.dacrouch.disabled = false
@@ -26,9 +27,9 @@ func enter() -> void:
 
 #What happens when we exit state.
 func exit() -> void:
-	player.collision_stand.disabled = false
+	player.collision_stand.disabled =  false
 	player.collision_crouch.disabled = true
-	player.dastand.disabled = false
+	player.dastand.disabled =  false
 	player.dacrouch.disabled = true
 	pass
 
@@ -45,6 +46,8 @@ func handle_input(_event:InputEvent) -> PlayerState:
 			player.position.y += 4
 			return fall
 		return jump
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		return crouch_walk
 	return next_state
 
 

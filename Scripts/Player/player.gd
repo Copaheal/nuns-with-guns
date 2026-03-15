@@ -62,7 +62,7 @@ var dash:bool = true
 var dash_count:int = 0
 var double_jump:bool = true
 var jump_count:int = 0
-var ground_slam:bool = false
+var ground_slam:bool = true
 var slide:bool = true
 var slide_count:int = 0
 

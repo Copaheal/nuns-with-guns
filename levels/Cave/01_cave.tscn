@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://c0wdkls6a0ec"]
+[gd_scene format=4 uid="uid://c0wdkls6a0ec"]
 
-[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_whpxw"]
+[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/LevelScripts/Level_Bounds.gd" id="1_whpxw"]
 [ext_resource type="TileSet" uid="uid://dbubr4jl6jfot" path="res://resrouces/MainCaveTileset.tres" id="2_w13j7"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="3_4plfl"]
 [ext_resource type="Texture2D" uid="uid://dpy2fm5tipw6x" path="res://Assets/Backgrounds/Cave/background1.png" id="3_cx7vd"]

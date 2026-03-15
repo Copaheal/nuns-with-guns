@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3rn8mi671te3"]
+[gd_scene format=3 uid="uid://b3rn8mi671te3"]
 
 [ext_resource type="Script" uid="uid://cod5mp3pl7ygk" path="res://Scenes/Props/Test Dummy/test_dummy.gd" id="1_1h4ps"]
 [ext_resource type="Texture2D" uid="uid://bivtocuy0ko6h" path="res://Assets/VariousSprites/props_destructible.png" id="2_l234i"]
 [ext_resource type="Script" uid="uid://cs4h5qf0jc0aj" path="res://00_Global/VisualEffects/hit_particle_settings.gd" id="2_rq5g3"]
 [ext_resource type="Resource" uid="uid://tkpand1xng42" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_small.tres" id="3_rhe07"]
-[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/damage_area.gd" id="3_rq5g3"]
+[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/PropScripts/damage_area.gd" id="3_rq5g3"]
 [ext_resource type="Resource" uid="uid://dqbarfx85qda8" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_medium.tres" id="4_rhe07"]
 [ext_resource type="AudioStream" uid="uid://b116mt3dtab8s" path="res://00_Global/Audio/Player Audio/hit.wav" id="7_2k7y8"]
 

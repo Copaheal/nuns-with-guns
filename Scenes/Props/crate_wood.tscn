@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ditppgppy8kti"]
+[gd_scene format=3 uid="uid://ditppgppy8kti"]
 
-[ext_resource type="Script" uid="uid://gi10os5qrns6" path="res://Scripts/breakable.gd" id="1_pktme"]
+[ext_resource type="Script" uid="uid://gi10os5qrns6" path="res://Scripts/PropScripts/breakable.gd" id="1_pktme"]
 [ext_resource type="Script" uid="uid://cs4h5qf0jc0aj" path="res://00_Global/VisualEffects/hit_particle_settings.gd" id="2_jk4yt"]
 [ext_resource type="Resource" uid="uid://dqbarfx85qda8" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_medium.tres" id="3_e40yc"]
 [ext_resource type="Resource" uid="uid://or36xkaokqsc" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_large.tres" id="4_8b2e4"]
 [ext_resource type="Resource" uid="uid://tkpand1xng42" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_small.tres" id="5_u6i15"]
-[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/damage_area.gd" id="6_n48lg"]
+[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/PropScripts/damage_area.gd" id="6_n48lg"]
 [ext_resource type="Texture2D" uid="uid://bivtocuy0ko6h" path="res://Assets/VariousSprites/props_destructible.png" id="7_5exl8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awyp7"]

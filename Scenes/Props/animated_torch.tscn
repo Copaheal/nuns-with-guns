@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c147f6vsvri3o"]
+[gd_scene format=3 uid="uid://c147f6vsvri3o"]
 
 [ext_resource type="Texture2D" uid="uid://cykwf08ekej74" path="res://Assets/TileSets/Cave Parts/animated_torch.png" id="1_tfrvm"]
-[ext_resource type="Script" uid="uid://df4egj4vy07f" path="res://Scripts/light_flicker.gd" id="2_lqh07"]
+[ext_resource type="Script" uid="uid://df4egj4vy07f" path="res://Scripts/PropScripts/light_flicker.gd" id="2_lqh07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqh07"]
 atlas = ExtResource("1_tfrvm")

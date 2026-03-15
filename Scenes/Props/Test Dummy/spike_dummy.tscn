@@ -5,8 +5,8 @@
 [ext_resource type="Resource" uid="uid://tkpand1xng42" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_small.tres" id="3_4tbyx"]
 [ext_resource type="Resource" uid="uid://dqbarfx85qda8" path="res://00_Global/VisualEffects/Hit_Particle_Settings/hit_wood_medium.tres" id="4_stro7"]
 [ext_resource type="Texture2D" uid="uid://bivtocuy0ko6h" path="res://Assets/VariousSprites/props_destructible.png" id="5_ljkgt"]
-[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/damage_area.gd" id="6_etjug"]
-[ext_resource type="Script" uid="uid://b6l1p1druxuvd" path="res://Scripts/hazard_area.gd" id="6_n4oqi"]
+[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/PropScripts/damage_area.gd" id="6_etjug"]
+[ext_resource type="Script" uid="uid://b6l1p1druxuvd" path="res://Scripts/PropScripts/hazard_area.gd" id="6_n4oqi"]
 [ext_resource type="AudioStream" uid="uid://b116mt3dtab8s" path="res://00_Global/Audio/Player Audio/hit.wav" id="7_fw3nv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhe07"]

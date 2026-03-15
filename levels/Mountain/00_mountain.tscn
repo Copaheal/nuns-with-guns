@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b16sla3kyw34m"]
 
-[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/Level_Bounds.gd" id="1_l6bd0"]
+[ext_resource type="Script" uid="uid://crm4dveubgrba" path="res://Scripts/LevelScripts/Level_Bounds.gd" id="1_l6bd0"]
 [ext_resource type="Texture2D" uid="uid://cjnduwfrned85" path="res://Assets/Backgrounds/Snowy Mountain/background1.png" id="2_hgeb6"]
 [ext_resource type="PackedScene" uid="uid://0l0lhnii3gjb" path="res://Scenes/player_spawn.tscn" id="3_hlm5k"]
 [ext_resource type="Texture2D" uid="uid://dbhrv8sfgklyb" path="res://Assets/Backgrounds/Snowy Mountain/background2a.png" id="3_ryt11"]

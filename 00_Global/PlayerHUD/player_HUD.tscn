@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0w12d1ohepix"]
+[gd_scene format=3 uid="uid://d0w12d1ohepix"]
 
 [ext_resource type="Script" uid="uid://d4n2bu8ebj3b6" path="res://00_Global/PlayerHUD/player_hud.gd" id="1_k7ycf"]
 [ext_resource type="Texture2D" uid="uid://bmquxvgn33ldi" path="res://00_Global/PlayerHUD/health_bar_frame.png" id="1_xppej"]
@@ -28,16 +28,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_pressed() -> void:
 	var player:Player = get_tree().get_first_node_in_group(\"Player\")
-	player.slide = !player.slide
+	player.ground_slam = !player.ground_slam
 	pass
 "
 
-[node name="PlayerHud" type="CanvasLayer"]
+[node name="PlayerHud" type="CanvasLayer" unique_id=759257953]
 process_mode = 3
 layer = 2
 script = ExtResource("1_k7ycf")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1160745451]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HPMarginContainer" type="MarginContainer" parent="Control"]
+[node name="HPMarginContainer" type="MarginContainer" parent="Control" unique_id=2041870073]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 0
@@ -56,14 +56,14 @@ offset_right = 48.0
 offset_bottom = 28.0
 scale = Vector2(3, 3)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer" unique_id=431437275]
 layout_mode = 2
 texture = ExtResource("1_xppej")
 patch_margin_left = 27
 patch_margin_right = 7
 axis_stretch_horizontal = 1
 
-[node name="HPbar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect"]
+[node name="HPbar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect" unique_id=1002798409]
 unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 1
@@ -82,17 +82,17 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_6pm68")
 texture_progress = SubResource("GradientTexture2D_gpjmj")
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="Button2" type="Button" parent="Control" unique_id=1148995585]
 layout_mode = 0
 offset_left = 791.0
 offset_top = 14.0
 offset_right = 944.0
 offset_bottom = 37.0
-text = "Toggle Slide
+text = "Toggle Slam
 "
 script = SubResource("GDScript_6pm68")
 
-[node name="GameOver" type="Control" parent="Control"]
+[node name="GameOver" type="Control" parent="Control" unique_id=1103254284]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -102,7 +102,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control/GameOver"]
+[node name="ColorRect" type="ColorRect" parent="Control/GameOver" unique_id=994880816]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,7 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7607843)
 
-[node name="Label" type="Label" parent="Control/GameOver"]
+[node name="Label" type="Label" parent="Control/GameOver" unique_id=1246881631]
 modulate = Color(0.47843137, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -128,7 +128,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Game Over"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/GameOver"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GameOver" unique_id=13803726]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,14 +142,14 @@ offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LoadButton" type="Button" parent="Control/GameOver/HBoxContainer"]
+[node name="LoadButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=749415916]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Load Last Save"
 
-[node name="QuitButton" type="Button" parent="Control/GameOver/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=1622291489]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
