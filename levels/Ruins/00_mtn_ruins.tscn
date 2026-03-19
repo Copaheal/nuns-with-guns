@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b3rn8mi671te3" path="res://Scenes/Props/Test Dummy/test_dummy.tscn" id="14_xr3hq"]
 [ext_resource type="PackedScene" uid="uid://bf2y2b3e6sxek" path="res://Scenes/Props/Test Dummy/spike_dummy.tscn" id="15_qmvr8"]
 [ext_resource type="PackedScene" uid="uid://ditppgppy8kti" path="res://Scenes/Props/crate_wood.tscn" id="16_htuq8"]
+[ext_resource type="PackedScene" uid="uid://buo1p7s3i2ylq" path="res://Scenes/Ability Pickup/ability_pickup.tscn" id="17_htuq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr3hq"]
 size = Vector2(82, 133)
@@ -160,23 +161,23 @@ position = Vector2(592, 321)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("10_xr3hq")
 
-[node name="Breakable" type="Node2D" parent="." unique_id=1283611430]
+[node name="HiddenWall" type="Node2D" parent="." unique_id=1283611430]
 z_index = 1
 position = Vector2(1009, 942)
 script = ExtResource("11_4bx6p")
 metadata/_custom_type_script = "uid://gi10os5qrns6"
 
-[node name="DamageArea" type="Area2D" parent="Breakable" unique_id=1196942135]
+[node name="DamageArea" type="Area2D" parent="HiddenWall" unique_id=1196942135]
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("12_ydg2l")
 metadata/_custom_type_script = "uid://btra14dtcmhwc"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=1750613932]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenWall/DamageArea" unique_id=1750613932]
 position = Vector2(71, -47.5)
 shape = SubResource("RectangleShape2D_xr3hq")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Breakable" unique_id=672809376]
+[node name="TileMapLayer" type="TileMapLayer" parent="HiddenWall" unique_id=672809376]
 tile_map_data = PackedByteArray("AAABAPn/AAAWACUAAAABAPr/AAAWACYAAAACAPn/AAAXACUAAAACAPr/AAAXACYAAAADAPn/AAAYACUAAAADAPr/AAAYACYAAAABAPv/AAAWACUAAAABAPz/AAAWACYAAAACAPv/AAAXACUAAAACAPz/AAAXACYAAAADAPv/AAAYACMAAAADAPz/AAAYACYAAAABAP3/AAAWACUAAAABAP7/AAAWACYAAAACAP3/AAAXACUAAAACAP7/AAAXACYAAAADAP3/AAAYACUAAAADAP7/AAAYACYAAAABAP//AAAWACUAAAABAAAAAAAWACYAAAACAP//AAAXACUAAAACAAAAAAAXACYAAAADAP//AAAYACUAAAADAAAAAAAYACYAAAAEAPn/AAAYACMAAAAEAPr/AAAYACUAAAAEAPv/AAABACAAAAAEAPz/AAAYACUAAAAEAP3/AAAYACMAAAAEAP7/AAAYACUAAAAEAP//AAAYACYAAAAEAAAAAAAYACUAAAAFAPn/AAABACAAAAAGAPn/AAABACAAAAAFAPr/AAABACAAAAAGAPr/AAABACAAAAAFAPv/AAABACAAAAAFAPz/AAABACAAAAAFAP3/AAABACAAAAAFAP7/AAABACAAAAAFAP//AAABACAAAAAFAAAAAAABAB8AAAAGAAAAAAACAB8AAAAGAP//AAABACAAAAAGAP7/AAABACAAAAAGAP3/AAABACAAAAAGAPz/AAABACAAAAAGAPv/AAABACAAAAADAAEAAAAYACUAAAADAAIAAAAYACYAAAAEAAEAAAAYACYAAAAFAAEAAAABACAAAAAGAAEAAAACACAAAAA=")
 tile_set = ExtResource("5_jtix8")
 
@@ -262,3 +263,7 @@ position = Vector2(552, 728)
 
 [node name="Crate3" parent="Props" unique_id=806332534 instance=ExtResource("16_htuq8")]
 position = Vector2(510, 695)
+
+[node name="AbilityPickup3" parent="Props" unique_id=1594315170 instance=ExtResource("17_htuq8")]
+position = Vector2(615, 274)
+type = 2

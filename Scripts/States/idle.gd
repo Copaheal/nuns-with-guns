@@ -21,7 +21,7 @@ func exit() -> void:
 
 #What happens when an input is pressed/released
 func handle_input(_event:InputEvent) -> PlayerState:
-	if _event.is_action_pressed("dash") and player.can_slide():
+	if _event.is_action_pressed("dash") and _event.is_action_pressed("crouch") and player.can_slide():
 		return slide
 	if _event.is_action_pressed("dash") and player.can_dash():
 		return dash
@@ -30,7 +30,7 @@ func handle_input(_event:InputEvent) -> PlayerState:
 	if _event.is_action_pressed("jump"):
 		return jump
 	if _event.is_action_pressed("crouch"):
-		return crouch_walk
+		return crouch
 	return next_state
 
 

@@ -27,8 +27,6 @@ func enter() -> void:
 	player.dastand.disabled = true
 	player.dacrouch.disabled = false
 	
-	#Visual
-	#Audio
 	pass
 
 
@@ -39,6 +37,10 @@ func exit() -> void:
 	player.collision_crouch.disabled = true
 	player.dastand.disabled =  false
 	player.dacrouch.disabled = true
+	
+	if under_object and _can_stand():
+		under_object = false
+	
 	pass
 
 
@@ -48,6 +50,11 @@ func handle_input(_event:InputEvent) -> PlayerState:
 		return slide
 	if _event.is_action_pressed("attack"):
 		return attack
+	if _event.is_action_released("crouch"):
+		if _can_stand():
+			if player.is_on_floor():
+				return idle
+			return fall
 	if _event.is_action_pressed("jump"):
 		if player.is_on_floor():
 			if Input.is_action_pressed("down"):
@@ -58,12 +65,7 @@ func handle_input(_event:InputEvent) -> PlayerState:
 			player.velocity.y -= jump_velocity
 			jump_audio.play()
 			VisualEffects.jump_dust(player.global_position)
-	if _event.is_action_released("crouch") or _event.is_action_pressed("crouch"):
-		if _can_stand():
-			if player.is_on_floor():
-				return idle
-			return fall
-	return null
+	return next_state
 
 
 #What happens each process tick
@@ -75,8 +77,7 @@ func process(_delta:float) -> PlayerState:
 	#fixes crouch getting stuck
 	if under_object and _can_stand():
 		under_object = false
-		return idle 
-	
+		return idle
 	return next_state
 
 

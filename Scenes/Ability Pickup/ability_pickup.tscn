@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://buo1p7s3i2ylq"]
+
+[ext_resource type="Script" uid="uid://bwx577kl58pad" path="res://Scenes/Ability Pickup/ability_pickup.gd" id="1_knuv3"]
+[ext_resource type="Texture2D" uid="uid://bfhm38tkdpbhy" path="res://Assets/VariousSprites/abilities.png" id="1_rhwne"]
+[ext_resource type="Script" uid="uid://gi10os5qrns6" path="res://Scripts/PropScripts/breakable.gd" id="2_knuv3"]
+[ext_resource type="Script" uid="uid://cs4h5qf0jc0aj" path="res://00_Global/VisualEffects/hit_particle_settings.gd" id="3_ie4oc"]
+[ext_resource type="AudioStream" uid="uid://cf1fpgoygpxg3" path="res://00_Global/Audio/Player Audio/ability_crack.wav" id="4_bx1vv"]
+[ext_resource type="AudioStream" uid="uid://cpe6ta7ejj1kj" path="res://00_Global/Audio/Player Audio/ability_acquire.wav" id="5_kpj0b"]
+[ext_resource type="Script" uid="uid://btra14dtcmhwc" path="res://Scripts/PropScripts/damage_area.gd" id="6_5ubgm"]
+
+[sub_resource type="Animation" id="Animation_knuv3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rhwne"]
+resource_name = "dash"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ie4oc"]
+resource_name = "double_jump"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_bx1vv"]
+resource_name = "ground_slam"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ie4oc"]
+_data = {
+&"RESET": SubResource("Animation_knuv3"),
+&"dash": SubResource("Animation_rhwne"),
+&"double_jump": SubResource("Animation_ie4oc"),
+&"ground_slam": SubResource("Animation_bx1vv")
+}
+
+[sub_resource type="Animation" id="Animation_kpj0b"]
+resource_name = "Destroy"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [23, 24]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%AbilitySprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ubgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%AbilitySprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ga4or"]
+resource_name = "default"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m702j"]
+_data = {
+&"Destroy": SubResource("Animation_kpj0b"),
+&"RESET": SubResource("Animation_5ubgm"),
+&"default": SubResource("Animation_ga4or")
+}
+
+[sub_resource type="Resource" id="Resource_ga4or"]
+script = ExtResource("3_ie4oc")
+metadata/_custom_type_script = "uid://cs4h5qf0jc0aj"
+
+[sub_resource type="Resource" id="Resource_m702j"]
+script = ExtResource("3_ie4oc")
+count = 5
+color = Color(0, 1, 0.7058824, 1)
+metadata/_custom_type_script = "uid://cs4h5qf0jc0aj"
+
+[sub_resource type="Resource" id="Resource_fo3qs"]
+script = ExtResource("3_ie4oc")
+count = 10
+metadata/_custom_type_script = "uid://cs4h5qf0jc0aj"
+
+[sub_resource type="Resource" id="Resource_adaok"]
+script = ExtResource("3_ie4oc")
+count = 25
+color = Color(0, 1, 0.7058824, 1)
+metadata/_custom_type_script = "uid://cs4h5qf0jc0aj"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2rlr"]
+radius = 20.0
+
+[node name="AbilityPickup" type="Node2D" unique_id=1122156718]
+script = ExtResource("1_knuv3")
+
+[node name="AbilitySprite" type="Sprite2D" parent="." unique_id=1005542930]
+unique_name_in_owner = true
+texture = ExtResource("1_rhwne")
+hframes = 5
+vframes = 5
+
+[node name="AbilityAnim" type="AnimationPlayer" parent="AbilitySprite" unique_id=140503266]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ie4oc")
+autoplay = &"dash"
+
+[node name="OrbSprite" type="Sprite2D" parent="." unique_id=371265277]
+unique_name_in_owner = true
+texture = ExtResource("1_rhwne")
+hframes = 5
+vframes = 5
+frame = 20
+
+[node name="OrbAnim" type="AnimationPlayer" parent="OrbSprite" unique_id=1092771422]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_m702j")
+autoplay = &"default"
+
+[node name="Breakable" type="Node2D" parent="." unique_id=579762023]
+script = ExtResource("2_knuv3")
+fixed_hit_count = true
+hit_particles = Array[ExtResource("3_ie4oc")]([SubResource("Resource_ga4or"), SubResource("Resource_m702j")])
+destroy_particles = Array[ExtResource("3_ie4oc")]([SubResource("Resource_fo3qs"), SubResource("Resource_adaok")])
+hit_audio = ExtResource("4_bx1vv")
+destroy_audio = ExtResource("5_kpj0b")
+metadata/_custom_type_script = "uid://gi10os5qrns6"
+
+[node name="DamageArea" type="Area2D" parent="Breakable" unique_id=206131537]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("6_5ubgm")
+metadata/_custom_type_script = "uid://btra14dtcmhwc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=1020398568]
+shape = SubResource("CircleShape2D_t2rlr")

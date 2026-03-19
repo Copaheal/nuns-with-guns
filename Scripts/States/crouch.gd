@@ -3,7 +3,6 @@ class_name PlayerStateCrouch extends PlayerState
 #region // State Variables
 
 @export var deceleration_rate:float = 10
-@onready var crouch_ray_up: RayCast2D = %CrouchRayUp
 
 #endregion
 

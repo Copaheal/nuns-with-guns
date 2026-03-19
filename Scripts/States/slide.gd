@@ -9,6 +9,7 @@ const SLIDE_AUDIO = preload("uid://fa1aegl0l1ww")
 var dir:float = 1.0
 var time:float = 0.0
 var effect_time:float = 0.0
+var under_object:bool = false
 
 @onready var damage_area: DamageArea = %DamageArea
 @onready var crouch_ray_up: RayCast2D = %CrouchRayUp
@@ -52,7 +53,8 @@ func exit() -> void:
 
 #What happens when an input is pressed/released
 func handle_input(_event:InputEvent) -> PlayerState:
-
+	if _event.is_action_released("crouch") and _can_stand():
+		return idle
 	return null
 
 
@@ -66,6 +68,10 @@ func process(_delta:float) -> PlayerState:
 	if effect_time < 0:
 		effect_time = effect_delay
 		player.sprite.ghost()
+	
+	if under_object and _can_stand():
+		under_object = false
+		return idle 
 	
 	return null
 
@@ -85,5 +91,6 @@ func _can_stand()->bool:
 	crouch_ray_up.force_raycast_update()
 	crouch_ray_down.force_raycast_update()
 	if crouch_ray_down.is_colliding() and crouch_ray_up.is_colliding():
+		under_object = true
 		return false
 	return true

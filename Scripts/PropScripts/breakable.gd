@@ -3,6 +3,7 @@
 class_name Breakable extends Node2D
 
 signal destroyed
+signal damage_taken
 
 @export var hp:float = 3
 @export var fixed_hit_count:bool = false
@@ -37,10 +38,12 @@ func _on_damage_taken(attack_area:AttackArea)->void:
 		dir.x *= -1
 	
 	if hp > 0:
+		damage_taken.emit()
 		Audio.play_spatial_sound(hit_audio, pos)
 		for p in hit_particles:
 			VisualEffects.hit_particles(pos, dir, p)
 	else:
+		destroyed.emit()
 		Audio.play_spatial_sound(destroy_audio, pos)
 		for p in destroy_particles:
 			VisualEffects.hit_particles(pos, dir, p)
