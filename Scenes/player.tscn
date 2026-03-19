@@ -1043,6 +1043,7 @@ process_callback = 0
 limit_left = -400
 limit_right = 2500
 limit_bottom = 700
+position_smoothing_enabled = true
 script = ExtResource("16_igrcy")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1478321532]

@@ -1,6 +1,7 @@
 class_name PlayerStateCrouchWalk extends PlayerState
 
 var on_floor:bool = true
+var under_object:bool = false
 
 @export var jump_velocity:float = 400
 
@@ -71,6 +72,11 @@ func process(_delta:float) -> PlayerState:
 		player.anim_player.speed_scale = 0
 	else:
 		player.anim_player.speed_scale = 1
+	#fixes crouch getting stuck
+	if under_object and _can_stand():
+		under_object = false
+		return idle 
+	
 	return next_state
 
 
@@ -92,5 +98,6 @@ func _can_stand()->bool:
 	crouch_ray_up.force_raycast_update()
 	crouch_ray_down.force_raycast_update()
 	if crouch_ray_down.is_colliding() and crouch_ray_up.is_colliding():
+		under_object = true
 		return false
 	return true
